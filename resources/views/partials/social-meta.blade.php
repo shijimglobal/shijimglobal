@@ -10,6 +10,9 @@
 <meta name="description" content="{{ $shareDescription }}">
 <link rel="canonical" href="{{ url()->current() }}">
 
+@if (filled(config('services.facebook.app_id')))
+    <meta property="fb:app_id" content="{{ config('services.facebook.app_id') }}">
+@endif
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{{ __(config('company.name')) }}">
 <meta property="og:title" content="{{ $shareTitle }}">

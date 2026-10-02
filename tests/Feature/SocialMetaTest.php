@@ -11,6 +11,22 @@ test('home page has open graph tags with a properly sized share image', function
         ->assertSee('<meta property="og:locale" content="mn_MN">', false);
 });
 
+test('facebook app id is included when configured', function () {
+    config(['services.facebook.app_id' => '1234567890']);
+
+    $this->get(route('home'))
+        ->assertOk()
+        ->assertSee('<meta property="fb:app_id" content="1234567890">', false);
+});
+
+test('facebook app id tag is omitted when not configured', function () {
+    config(['services.facebook.app_id' => null]);
+
+    $this->get(route('home'))
+        ->assertOk()
+        ->assertDontSee('fb:app_id', false);
+});
+
 test('share image and padded icons exist', function () {
     expect(getimagesize(public_path('assets/og/og-image.png')))->toMatchArray([0 => 1200, 1 => 630])
         ->and(public_path('assets/ico/apple-touch-icon-padded.png'))->toBeFile()
