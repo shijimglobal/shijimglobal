@@ -5,10 +5,11 @@
 <title>{{ $title }}</title>
 <meta name="theme-color" content="#4b52ff">
 
-<link rel="icon" href="{{ asset('assets/ico/favicon.ico') }}">
+<link rel="icon" href="{{ asset('assets/ico/favicon.ico') }}" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/ico/favicon-32x32.png') }}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/ico/favicon-16x16.png') }}">
-<link rel="apple-touch-icon" href="{{ asset('assets/ico/apple-touch-icon.png') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/ico/apple-touch-icon-padded.png') }}">
+<link rel="manifest" href="{{ asset('assets/ico/site.webmanifest') }}">
 
 <script>
     (() => {

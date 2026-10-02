@@ -210,7 +210,7 @@ if (notificationPoller) {
 
         const browserNotification = new Notification(latestNotification.title, {
             body: latestNotification.body,
-            icon: '/assets/ico/android-chrome-192x192.png',
+            icon: '/assets/ico/icon-192.png',
             tag: latestNotification.id,
         });
 
