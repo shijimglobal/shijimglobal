@@ -83,7 +83,7 @@
                                 class="flex size-8 shrink-0 sm:size-10 items-center justify-center rounded-xl bg-[#1877f2]/10 text-[#1877f2]"><i
                                     class="icon-[tabler--users] text-lg sm:text-xl"></i></span>
                             <div class="min-w-0">
-                                <dd class="text-lg leading-none font-extrabold sm:text-xl"
+                                <dd class="text-lg leading-none font-bold sm:text-xl"
                                     title="{{ number_format($profile['followers_count']) }}">
                                     {{ $abbreviate($profile['followers_count']) }}</dd>
                                 <dt class="mt-1 truncate text-[0.7rem] font-semibold sm:text-xs text-base-content/55">
