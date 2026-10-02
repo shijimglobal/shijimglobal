@@ -66,7 +66,8 @@
                             @endif
                         </span>
                         <div class="min-w-0 -mb-2">
-                            <h3 class="truncate text-base leading-tight font-semibold sm:text-xl">{{ $profile['name'] }}
+                            <h3 class="truncate text-base leading-tight font-semibold sm:text-xl">
+                                {{ $profile['name'] }}
                             </h3>
                             @if ($profile['category'])
                                 <p class="mt-0.5 truncate text-sm text-base-content/55">{{ $profile['category'] }}</p>
@@ -94,7 +95,7 @@
                                 class="flex size-8 shrink-0 sm:size-10 items-center justify-center rounded-xl bg-[#1877f2]/10 text-[#1877f2]"><i
                                     class="icon-[tabler--thumb-up] text-lg sm:text-xl"></i></span>
                             <div class="min-w-0">
-                                <dd class="text-lg leading-none font-extrabold sm:text-xl"
+                                <dd class="text-lg leading-none font-bold sm:text-xl"
                                     title="{{ number_format($profile['fan_count']) }}">
                                     {{ $abbreviate($profile['fan_count']) }}</dd>
                                 <dt class="mt-1 truncate text-[0.7rem] font-semibold sm:text-xs text-base-content/55">
@@ -115,7 +116,10 @@
                             {{ __('Follow') }}
                         </a>
                         @if (config('company.messenger'))
-                            <a href="{{ config('company.messenger') }}" data-desktop-href="{{ \App\Services\FacebookPageService::desktopMessengerUrl() }}" data-app-href="{{ \App\Services\FacebookPageService::messengerAppUrl() }}" target="_blank" rel="noopener"
+                            <a href="{{ config('company.messenger') }}"
+                                data-desktop-href="{{ \App\Services\FacebookPageService::desktopMessengerUrl() }}"
+                                data-app-href="{{ \App\Services\FacebookPageService::messengerAppUrl() }}"
+                                target="_blank" rel="noopener"
                                 class="btn btn-cta btn-outline border-base-300 hover:border-[#1877f2] hover:bg-[#1877f2]/5 hover:text-[#1877f2]">
                                 <i class="icon-[tabler--brand-messenger] text-lg"></i>
                                 {{ __('Message') }}
