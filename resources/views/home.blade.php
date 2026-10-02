@@ -179,6 +179,9 @@
         </div>
     </section>
 
+    {{-- Partners --}}
+    <x-partners />
+
     {{-- Services --}}
     <section id="services" class="py-24 lg:py-32">
         <div class="mx-auto max-w-7xl px-4 lg:px-8">
@@ -322,11 +325,12 @@
             </div>
 
             <div class="relative mt-16">
-            <div class="pointer-events-none absolute top-10 right-[12%] left-[12%] hidden h-0.5 bg-gradient-to-r from-brand-blue via-brand-indigo to-brand-violet opacity-30 lg:block"></div>
+            <div class="pointer-events-none absolute top-10 right-[12%] left-[12%] hidden h-0.5 bg-gradient-to-r from-brand-blue via-brand-indigo to-brand-violet opacity-30 lg:block" data-reveal-line></div>
             <ol class="relative grid gap-6 md:grid-cols-2 lg:grid-cols-4">
 
                 @foreach ($processSteps as $processStep)
-                    <li class="relative text-center" data-reveal>
+                    {{-- Steps appear one after another, following the line as it draws. --}}
+                    <li class="relative text-center" data-reveal style="--reveal-delay: {{ $loop->index * 350 }}ms">
                         <div class="relative mx-auto flex size-20 items-center justify-center rounded-3xl border border-base-300 bg-base-100 shadow-lg shadow-primary/10">
                             <i class="{{ $processStep['icon'] }} icon-gradient text-4xl"></i>
                             <span class="absolute -top-2 -right-2 flex size-7 items-center justify-center rounded-full bg-brand-gradient text-xs font-bold text-white">

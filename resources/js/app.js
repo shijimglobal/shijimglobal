@@ -20,7 +20,7 @@ const revealObserver = new IntersectionObserver(
     { threshold: 0.15 },
 );
 
-document.querySelectorAll('[data-reveal]').forEach((element) => revealObserver.observe(element));
+document.querySelectorAll('[data-reveal], [data-reveal-line]').forEach((element) => revealObserver.observe(element));
 
 const navbar = document.querySelector('[data-navbar]');
 
@@ -171,6 +171,145 @@ document.querySelectorAll('[data-password-toggle]').forEach((toggle) => {
     });
 });
 
+document.querySelectorAll('[data-logo-input]').forEach((logoInput) => {
+    logoInput.addEventListener('change', () => {
+        const [logoFile] = logoInput.files;
+
+        if (!logoFile) {
+            return;
+        }
+
+        const logoPreview = document.querySelector('[data-logo-preview]');
+        logoPreview.src = URL.createObjectURL(logoFile);
+        logoPreview.classList.remove('hidden');
+        document.querySelector('[data-logo-placeholder]')?.classList.add('hidden');
+    });
+});
+
+const partnerModal = document.querySelector('[data-partner-modal]');
+
+if (partnerModal) {
+    const partnerForm = partnerModal.querySelector('[data-partner-form]');
+    const partnerField = (name) => partnerForm.querySelector(`[data-partner-field="${name}"]`);
+    const logoInput = partnerForm.querySelector('[data-logo-input]');
+    const logoPreview = partnerForm.querySelector('[data-logo-preview]');
+    const logoPlaceholder = partnerForm.querySelector('[data-logo-placeholder]');
+
+    const clearValidationErrors = () => {
+        partnerForm.querySelectorAll('.field-error').forEach((error) => error.remove());
+        partnerForm.querySelectorAll('.is-invalid').forEach((field) => field.classList.remove('is-invalid'));
+    };
+
+    const openPartnerModal = (partner = null) => {
+        const isEditing = partner !== null;
+
+        clearValidationErrors();
+        partnerForm.action = isEditing ? partner.update_url : partnerModal.dataset.storeUrl;
+        partnerForm.querySelector('[data-partner-method]').disabled = !isEditing;
+        partnerModal.querySelector('[data-partner-modal-title]').textContent = isEditing ? partnerModal.dataset.titleEdit : partnerModal.dataset.titleCreate;
+        partnerModal.querySelector('[data-partner-submit-label]').textContent = isEditing ? partnerModal.dataset.submitEdit : partnerModal.dataset.submitCreate;
+
+        partnerField('id').value = partner?.id ?? '';
+        partnerField('name').value = partner?.name ?? '';
+        partnerField('website_url').value = partner?.website_url ?? '';
+        partnerField('is_active').checked = partner?.is_active ?? true;
+
+        logoInput.value = '';
+        logoInput.required = !isEditing;
+        logoPreview.src = partner?.logo_url ?? '';
+        logoPreview.classList.toggle('hidden', !isEditing);
+        logoPlaceholder.classList.toggle('hidden', isEditing);
+
+        partnerModal.showModal();
+        partnerField('name').focus();
+    };
+
+    document.querySelectorAll('[data-partner-modal-open]').forEach((button) => {
+        button.addEventListener('click', () => openPartnerModal(button.dataset.partner ? JSON.parse(button.dataset.partner) : null));
+    });
+
+    partnerModal.querySelectorAll('[data-partner-modal-close]').forEach((button) => {
+        button.addEventListener('click', () => partnerModal.close());
+    });
+
+    // Clicking the dimmed backdrop (outside the dialog box) closes the modal.
+    partnerModal.addEventListener('click', (event) => {
+        if (event.target === partnerModal) {
+            partnerModal.close();
+        }
+    });
+
+    if (partnerModal.hasAttribute('data-open-on-load')) {
+        logoInput.required = !partnerField('id').value;
+        partnerModal.showModal();
+    }
+}
+
+const partnerSortableList = document.querySelector('[data-partner-sortable]');
+
+if (partnerSortableList) {
+    const orderStatus = document.querySelector('[data-partner-order-status]');
+    let orderStatusTimeout = null;
+
+    const showOrderStatus = (state) => {
+        const icons = { saving: 'icon-[tabler--loader-2] animate-spin', saved: 'icon-[tabler--circle-check] text-success', failed: 'icon-[tabler--alert-circle] text-error' };
+
+        orderStatus.innerHTML = `<i class="${icons[state]} text-lg"></i><span></span>`;
+        orderStatus.querySelector('span').textContent = orderStatus.dataset[`${state}Text`];
+        orderStatus.classList.remove('opacity-0');
+
+        clearTimeout(orderStatusTimeout);
+
+        if (state === 'saved') {
+            orderStatusTimeout = setTimeout(() => orderStatus.classList.add('opacity-0'), 2500);
+        }
+    };
+
+    const renumberPositions = () => {
+        partnerSortableList.querySelectorAll('[data-partner-position]').forEach((position, index) => {
+            position.textContent = index + 1;
+        });
+    };
+
+    const saveOrder = async () => {
+        showOrderStatus('saving');
+        renumberPositions();
+
+        try {
+            const response = await fetch(partnerSortableList.dataset.reorderUrl, {
+                method: 'PATCH',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                },
+                body: JSON.stringify({
+                    partners: [...partnerSortableList.querySelectorAll('[data-partner-id]')].map((row) => Number(row.dataset.partnerId)),
+                }),
+            });
+
+            showOrderStatus(response.ok ? 'saved' : 'failed');
+        } catch (error) {
+            showOrderStatus('failed');
+        }
+    };
+
+    // SortableJS is only needed on this admin page, so it is loaded on demand as a separate chunk.
+    import('sortablejs').then(({ default: Sortable }) => {
+        Sortable.create(partnerSortableList, {
+            handle: '[data-partner-drag-handle]',
+            animation: 180,
+            ghostClass: 'opacity-40',
+            chosenClass: 'bg-primary/5',
+            onEnd: (event) => {
+                if (event.oldIndex !== event.newIndex) {
+                    saveOrder();
+                }
+            },
+        });
+    });
+}
+
 document.querySelectorAll('form[data-confirm]').forEach((form) => {
     form.addEventListener('submit', (event) => {
         if (!window.confirm(form.dataset.confirm)) {
@@ -195,7 +334,8 @@ if (notificationPoller) {
     };
 
     const hideToast = () => {
-        notificationToast.classList.add('opacity-0', 'translate-x-4');
+        // "invisible" also stops the hidden toast link from catching clicks on the buttons beneath it.
+        notificationToast.classList.add('invisible', 'opacity-0', 'translate-x-4');
         notificationToast.classList.remove('opacity-100', 'translate-x-0');
     };
 
@@ -203,7 +343,7 @@ if (notificationPoller) {
         notificationToast.querySelector('[data-notification-toast-title]').textContent = latestNotification.title;
         notificationToast.querySelector('[data-notification-toast-body]').textContent = latestNotification.body;
         notificationToast.querySelector('[data-notification-toast-link]').href = latestNotification.url;
-        notificationToast.classList.remove('opacity-0', 'translate-x-4');
+        notificationToast.classList.remove('invisible', 'opacity-0', 'translate-x-4');
         notificationToast.classList.add('opacity-100', 'translate-x-0');
 
         clearTimeout(toastTimeout);

@@ -11,8 +11,15 @@ test('login page renders for guests', function () {
 
 test('login page is served at /login', function () {
     expect(route('login', absolute: false))->toBe('/login');
+});
 
-    $this->get('/admin/login')->assertRedirect('/login');
+test('admin panel lives under /modify and the old /admin paths no longer exist', function () {
+    expect(route('admin.dashboard', absolute: false))->toBe('/modify')
+        ->and(route('admin.partners.index', absolute: false))->toBe('/modify/partners');
+
+    $this->get('/modify')->assertRedirect(route('login'));
+    $this->get('/admin')->assertNotFound();
+    $this->get('/admin/login')->assertNotFound();
 });
 
 test('guests are redirected from the admin panel to the login page', function () {

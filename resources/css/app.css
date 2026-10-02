@@ -171,6 +171,24 @@
     @apply mt-1.5 flex items-center gap-1 text-sm text-error;
 }
 
+/* Partner logo marquee: the track holds two identical lists, so moving it by -50% loops seamlessly. */
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.marquee-track {
+    animation: marquee 40s linear infinite;
+}
+
+.partner-logo {
+    @apply flex h-20 w-40 items-center justify-center rounded-2xl border border-base-300/70 bg-white p-4 opacity-70 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 sm:h-24 sm:w-48 sm:p-5;
+}
+
 @layer base {
     html {
         scroll-behavior: smooth;
@@ -187,13 +205,32 @@
         transform 0.45s ease-out;
 }
 
+/* Staggered reveal only where the items sit side by side; stacked on phones they appear as you scroll. */
+@media (min-width: 64rem) {
+    .js [data-reveal] {
+        transition-delay: var(--reveal-delay, 0s);
+    }
+}
+
+/* A connector line that draws from left to right when it scrolls into view. */
+.js [data-reveal-line] {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.js [data-reveal-line].is-visible {
+    transform: scaleX(1);
+}
+
 .js [data-reveal].is-visible {
     opacity: 1;
     transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .js [data-reveal] {
+    .js [data-reveal],
+    .js [data-reveal-line] {
         opacity: 1;
         transform: none;
         transition: none;
@@ -202,6 +239,15 @@
     .animate-spin-slow,
     .animate-float,
     .animate-ping {
+        animation: none;
+    }
+
+    /* Without motion the logos are shown as a static, scrollable row. */
+    .marquee {
+        overflow-x: auto;
+    }
+
+    .marquee-track {
         animation: none;
     }
 }

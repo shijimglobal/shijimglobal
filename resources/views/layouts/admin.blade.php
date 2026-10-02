@@ -9,6 +9,7 @@
         $adminNavigation = [
             ['label' => __('Dashboard'), 'icon' => 'icon-[tabler--layout-dashboard]', 'route' => 'admin.dashboard', 'pattern' => 'admin.dashboard', 'badge' => null],
             ['label' => __('Messages'), 'icon' => 'icon-[tabler--inbox]', 'route' => 'admin.messages.index', 'pattern' => 'admin.messages.*', 'badge' => $unreadMessagesTotal ?: null],
+            ['label' => __('Partners'), 'icon' => 'icon-[tabler--building-community]', 'route' => 'admin.partners.index', 'pattern' => 'admin.partners.*', 'badge' => null],
         ];
     @endphp
 
@@ -195,7 +196,7 @@
 
         {{-- Live notification toast --}}
         <div data-notification-poll="{{ route('admin.notifications.poll') }}" data-notification-count="{{ $unreadNotificationsTotal }}" class="hidden"></div>
-        <div data-notification-toast class="pointer-events-none fixed end-4 top-24 z-50 w-[calc(100vw-2rem)] max-w-sm translate-x-4 opacity-0 transition duration-300 sm:end-8">
+        <div data-notification-toast class="invisible pointer-events-none fixed end-4 top-24 z-50 w-[calc(100vw-2rem)] max-w-sm translate-x-4 opacity-0 transition-all duration-300 sm:end-8">
             <a href="#" data-notification-toast-link class="pointer-events-auto flex gap-3 rounded-3xl border border-base-300 bg-base-100 p-4 shadow-2xl shadow-primary/15">
                 <span class="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-brand-gradient text-white">
                     <i class="icon-[tabler--bell-ringing] text-xl"></i>
