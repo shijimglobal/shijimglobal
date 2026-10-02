@@ -53,9 +53,9 @@
 
                 <div class="px-5 pb-6 sm:px-6">
                     {{-- Avatar and name --}}
-                    <div class="relative z-10 -mt-10 flex items-end gap-4">
+                    <div class="relative z-10 -mt-9 flex items-end gap-3 sm:-mt-10 sm:gap-4">
                         <span
-                            class="flex size-24 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white shadow-xl ring-4 ring-base-100">
+                            class="flex size-20 shrink-0 sm:size-24 items-center justify-center overflow-hidden rounded-full bg-white shadow-xl ring-4 ring-base-100">
                             @if ($profile['picture_url'])
                                 <img src="{{ $profile['picture_url'] }}" alt="{{ $profile['name'] }}"
                                     class="size-full object-cover" loading="lazy" referrerpolicy="no-referrer"
@@ -66,7 +66,7 @@
                             @endif
                         </span>
                         <div class="min-w-0 -mb-2">
-                            <h3 class="truncate text-lg leading-tight font-semibold sm:text-xl">{{ $profile['name'] }}
+                            <h3 class="truncate text-base leading-tight font-semibold sm:text-xl">{{ $profile['name'] }}
                             </h3>
                             @if ($profile['category'])
                                 <p class="mt-0.5 truncate text-sm text-base-content/55">{{ $profile['category'] }}</p>
@@ -76,28 +76,28 @@
 
                     {{-- Stats --}}
                     <dl
-                        class="mt-6 grid grid-cols-2 divide-x divide-base-300 rounded-2xl border border-base-300/80 bg-base-200/50">
-                        <div class="flex items-center gap-3 px-4 py-3.5">
+                        class="mt-5 grid grid-cols-2 sm:mt-6 divide-x divide-base-300 rounded-2xl border border-base-300/80 bg-base-200/50">
+                        <div class="flex min-w-0 items-center gap-2.5 px-3 py-3 sm:gap-3 sm:px-4 sm:py-3.5">
                             <span
-                                class="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#1877f2]/10 text-[#1877f2]"><i
-                                    class="icon-[tabler--users] text-xl"></i></span>
+                                class="flex size-8 shrink-0 sm:size-10 items-center justify-center rounded-xl bg-[#1877f2]/10 text-[#1877f2]"><i
+                                    class="icon-[tabler--users] text-lg sm:text-xl"></i></span>
                             <div class="min-w-0">
-                                <dd class="text-xl leading-none font-extrabold"
+                                <dd class="text-lg leading-none font-extrabold sm:text-xl"
                                     title="{{ number_format($profile['followers_count']) }}">
                                     {{ $abbreviate($profile['followers_count']) }}</dd>
-                                <dt class="mt-1 truncate text-xs font-semibold text-base-content/55">
+                                <dt class="mt-1 truncate text-[0.7rem] font-semibold sm:text-xs text-base-content/55">
                                     {{ __('Followers') }}</dt>
                             </div>
                         </div>
-                        <div class="flex items-center gap-3 px-4 py-3.5">
+                        <div class="flex min-w-0 items-center gap-2.5 px-3 py-3 sm:gap-3 sm:px-4 sm:py-3.5">
                             <span
-                                class="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#1877f2]/10 text-[#1877f2]"><i
-                                    class="icon-[tabler--thumb-up] text-xl"></i></span>
+                                class="flex size-8 shrink-0 sm:size-10 items-center justify-center rounded-xl bg-[#1877f2]/10 text-[#1877f2]"><i
+                                    class="icon-[tabler--thumb-up] text-lg sm:text-xl"></i></span>
                             <div class="min-w-0">
-                                <dd class="text-xl leading-none font-extrabold"
+                                <dd class="text-lg leading-none font-extrabold sm:text-xl"
                                     title="{{ number_format($profile['fan_count']) }}">
                                     {{ $abbreviate($profile['fan_count']) }}</dd>
-                                <dt class="mt-1 truncate text-xs font-semibold text-base-content/55">
+                                <dt class="mt-1 truncate text-[0.7rem] font-semibold sm:text-xs text-base-content/55">
                                     {{ __('Likes') }}</dt>
                             </div>
                         </div>
@@ -108,16 +108,16 @@
                             {{ $profile['about'] }}</p>
                     @endif
 
-                    <div class="mt-6 grid gap-2 {{ config('company.messenger') ? 'grid-cols-2' : '' }}">
+                    <div class="mt-5 grid gap-2 sm:mt-6 {{ config('company.messenger') ? 'grid-cols-2' : '' }}">
                         <a href="{{ $profile['link'] }}" target="_blank" rel="noopener"
-                            class="btn h-12 rounded-2xl border-0 bg-[#1877f2] text-white shadow-lg shadow-[#1877f2]/30 hover:bg-[#166fe0]">
-                            <i class="icon-[tabler--user-plus] text-lg"></i>
+                            class="btn h-11 rounded-xl text-sm sm:h-12 sm:rounded-2xl sm:text-base border-0 bg-[#1877f2] text-white shadow-lg shadow-[#1877f2]/30 hover:bg-[#166fe0]">
+                            <i class="icon-[tabler--user-plus] text-base sm:text-lg"></i>
                             {{ __('Follow') }}
                         </a>
                         @if (config('company.messenger'))
                             <a href="{{ config('company.messenger') }}" data-desktop-href="{{ \App\Services\FacebookPageService::desktopMessengerUrl() }}" data-app-href="{{ \App\Services\FacebookPageService::messengerAppUrl() }}" target="_blank" rel="noopener"
-                                class="btn btn-outline h-12 rounded-2xl border-base-300 hover:border-[#1877f2] hover:bg-[#1877f2]/5 hover:text-[#1877f2]">
-                                <i class="icon-[tabler--brand-messenger] text-lg"></i>
+                                class="btn btn-outline h-11 rounded-xl text-sm sm:h-12 sm:rounded-2xl sm:text-base border-base-300 hover:border-[#1877f2] hover:bg-[#1877f2]/5 hover:text-[#1877f2]">
+                                <i class="icon-[tabler--brand-messenger] text-base sm:text-lg"></i>
                                 {{ __('Message') }}
                             </a>
                         @endif
