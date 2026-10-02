@@ -18,7 +18,7 @@ return [
 
     'email' => 'info@shijimglobal.mn',
 
-    'phone' => '+976 9920 1210 ',
+    'phone' => '+976 9920 1210',
 
     'address' => 'Ulaanbaatar, Mongolia',
 
