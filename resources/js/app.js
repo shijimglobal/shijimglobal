@@ -114,46 +114,12 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
         }
     });
 } else {
-    // Phones: open the Messenger app directly. The site itself never navigates away;
-    // if the app does not open, a small prompt offers the m.me page in a new tab.
-    const messengerFallback = document.querySelector('[data-messenger-fallback]');
-    let messengerFallbackTimer = null;
-
-    const setMessengerFallbackVisible = (isVisible) => {
-        messengerFallback?.classList.toggle('opacity-0', !isVisible);
-        messengerFallback?.classList.toggle('translate-y-4', !isVisible);
-    };
-
-    const cancelMessengerFallback = () => clearTimeout(messengerFallbackTimer);
-
-    ['blur', 'pagehide'].forEach((eventName) => window.addEventListener(eventName, cancelMessengerFallback));
-    document.addEventListener('visibilitychange', () => {
-        cancelMessengerFallback();
-
-        if (document.visibilityState === 'visible') {
-            setMessengerFallbackVisible(false);
-        }
-    });
-    document.querySelector('[data-messenger-fallback-close]')?.addEventListener('click', () => setMessengerFallbackVisible(false));
-
+    // Phones: the link opens the Messenger app directly (the OS asks Open / Cancel).
     document.querySelectorAll('a[data-app-href]').forEach((link) => {
-        if (!link.dataset.appHref) {
-            return;
+        if (link.dataset.appHref) {
+            link.href = link.dataset.appHref;
+            link.removeAttribute('target');
         }
-
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            cancelMessengerFallback();
-
-            messengerFallbackTimer = setTimeout(() => {
-                if (document.visibilityState === 'visible' && document.hasFocus()) {
-                    setMessengerFallbackVisible(true);
-                    setTimeout(() => setMessengerFallbackVisible(false), 8000);
-                }
-            }, 2500);
-
-            window.location.href = link.dataset.appHref;
-        });
     });
 }
 
