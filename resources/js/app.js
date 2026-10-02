@@ -36,7 +36,9 @@ window.addEventListener('scroll', updateNavbar, { passive: true });
 updateNavbar();
 
 const navigationLinks = [...document.querySelectorAll('[data-nav-link]')];
+// Only in-page links ("#services") are tracked; on other pages the links point back to the home page.
 const trackedSections = [...new Set(navigationLinks.map((link) => link.getAttribute('href')))]
+    .filter((href) => href.startsWith('#'))
     .map((hash) => document.querySelector(hash))
     .filter(Boolean);
 

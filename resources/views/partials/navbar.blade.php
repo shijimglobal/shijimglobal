@@ -1,9 +1,12 @@
 @php
+    // Section links point back to the home page when shown on other pages (e.g. the legal pages).
+    $homeAnchorPrefix = request()->routeIs('home') ? '' : route('home');
+
     $navigationLinks = [
-        ['label' => __('Services'), 'href' => '#services'],
-        ['label' => __('Advantages'), 'href' => '#why-us'],
-        ['label' => __('Process'), 'href' => '#process'],
-        ['label' => __('FAQ'), 'href' => '#faq'],
+        ['label' => __('Services'), 'href' => $homeAnchorPrefix.'#services'],
+        ['label' => __('Advantages'), 'href' => $homeAnchorPrefix.'#why-us'],
+        ['label' => __('Process'), 'href' => $homeAnchorPrefix.'#process'],
+        ['label' => __('FAQ'), 'href' => $homeAnchorPrefix.'#faq'],
     ];
 
     $currentLocale = app()->getLocale();
@@ -54,7 +57,7 @@
                     <i class="icon-[tabler--sun] hidden text-xl dark:inline-block"></i>
                 </button>
 
-                <a href="#contact" class="btn btn-cta hidden border-0 bg-brand-gradient text-white shadow-lg shadow-primary/25 hover:opacity-90 sm:inline-flex">
+                <a href="{{ $homeAnchorPrefix }}#contact" class="btn btn-cta hidden border-0 bg-brand-gradient text-white shadow-lg shadow-primary/25 hover:opacity-90 sm:inline-flex">
                     {{ __('Get a quote') }}
                     <i class="icon-[tabler--arrow-up-right] text-lg"></i>
                 </a>
@@ -95,7 +98,7 @@
                     </div>
                 </li>
                 <li class="pt-2 sm:hidden">
-                    <a href="#contact" class="btn btn-cta btn-block border-0 bg-brand-gradient text-white">
+                    <a href="{{ $homeAnchorPrefix }}#contact" class="btn btn-cta btn-block border-0 bg-brand-gradient text-white">
                         {{ __('Get a quote') }}
                         <i class="icon-[tabler--arrow-up-right] text-lg"></i>
                     </a>

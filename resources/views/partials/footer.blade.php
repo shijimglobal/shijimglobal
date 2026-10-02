@@ -16,10 +16,10 @@
         <div class="md:col-span-3">
             <h3 class="text-sm font-semibold tracking-wider text-white uppercase">{{ __('Services') }}</h3>
             <ul class="mt-5 space-y-3">
-                <li><a href="#services" class="hover:text-white">{{ __('Company website') }}</a></li>
-                <li><a href="#services" class="hover:text-white">{{ __('Online payments') }}</a></li>
-                <li><a href="#services" class="hover:text-white">{{ __('E-commerce') }}</a></li>
-                <li><a href="#services" class="hover:text-white">{{ __('Server setup & rental') }}</a></li>
+                <li><a href="{{ request()->routeIs('home') ? '' : route('home') }}#services" class="hover:text-white">{{ __('Company website') }}</a></li>
+                <li><a href="{{ request()->routeIs('home') ? '' : route('home') }}#services" class="hover:text-white">{{ __('Online payments') }}</a></li>
+                <li><a href="{{ request()->routeIs('home') ? '' : route('home') }}#services" class="hover:text-white">{{ __('E-commerce') }}</a></li>
+                <li><a href="{{ request()->routeIs('home') ? '' : route('home') }}#services" class="hover:text-white">{{ __('Server setup & rental') }}</a></li>
             </ul>
         </div>
 
@@ -43,8 +43,13 @@
     </div>
 
     <div class="relative border-t border-white/10">
-        <div class="mx-auto max-w-7xl px-4 py-6 text-center text-sm lg:px-8">
+        <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-6 text-sm sm:flex-row lg:px-8">
             <p>&copy; {{ now()->year }} {{ __(config('company.name')) }}. {{ __('All rights reserved.') }}</p>
+            <nav class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2" aria-label="{{ __('Legal documents') }}">
+                @foreach (\App\Http\Controllers\LegalPageController::PAGES as $legalPage)
+                    <a href="{{ route($legalPage['route']) }}" class="hover:text-white">{{ __($legalPage['title']) }}</a>
+                @endforeach
+            </nav>
         </div>
     </div>
 </footer>

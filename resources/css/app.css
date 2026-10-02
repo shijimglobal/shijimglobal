@@ -188,6 +188,39 @@
     -webkit-touch-callout: default;
 }
 
+/* Long-form text on the legal pages. */
+.legal-prose {
+    @apply leading-relaxed text-base-content/80;
+
+    & h2 {
+        @apply mt-10 mb-3 text-xl font-bold text-base-content first:mt-0 sm:text-2xl;
+    }
+
+    & h3 {
+        @apply mt-6 mb-2 text-lg font-semibold text-base-content;
+    }
+
+    & p {
+        @apply mb-4;
+    }
+
+    & ul {
+        @apply mb-4 list-disc space-y-1.5 ps-6 marker:text-primary;
+    }
+
+    & ol {
+        @apply mb-4 list-decimal space-y-1.5 ps-6 marker:font-semibold marker:text-primary;
+    }
+
+    & a {
+        @apply font-semibold text-primary underline-offset-4 hover:underline;
+    }
+
+    & strong {
+        @apply font-semibold text-base-content;
+    }
+}
+
 /* Partner logo marquee: the track holds two identical lists, so moving it by -50% loops seamlessly. */
 @keyframes marquee {
     from {
