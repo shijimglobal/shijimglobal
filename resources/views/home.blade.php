@@ -371,6 +371,9 @@
         </div>
     </section>
 
+    {{-- Facebook page --}}
+    <x-facebook-page />
+
     {{-- Contact --}}
     <section id="contact" class="py-16 sm:py-24 lg:py-32">
         <div class="mx-auto max-w-7xl px-3 sm:px-4 lg:px-8">
