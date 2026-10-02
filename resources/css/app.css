@@ -124,8 +124,8 @@
 
 /* Soft radial glow; much cheaper to paint than a blurred element (filter: blur). */
 @utility glow-* {
-    background-image: radial-gradient(closest-side, --value(--color-*, [color]) 0%, transparent 100%);
-    background-image: radial-gradient(closest-side, color-mix(in oklab, --value(--color-*, [color]) calc(--modifier(integer) * 1%), transparent) 0%, transparent 100%);
+    background-image: radial-gradient(closest-side, --value(--color-*, [color]) 0%, transparent 72%);
+    background-image: radial-gradient(closest-side, color-mix(in oklab, --value(--color-*, [color]) calc(--modifier(integer) * 1%), transparent) 0%, transparent 72%);
 }
 
 @utility bg-grid {
@@ -171,6 +171,23 @@
     @apply mt-1.5 flex items-center gap-1 text-sm text-error;
 }
 
+/* Public site: text and images cannot be selected or dragged, but form fields stay fully usable. */
+.no-text-select {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.no-text-select img {
+    -webkit-user-drag: none;
+}
+
+.no-text-select :is(input, textarea, select, [contenteditable='true']) {
+    -webkit-user-select: text;
+    user-select: text;
+    -webkit-touch-callout: default;
+}
+
 /* Partner logo marquee: the track holds two identical lists, so moving it by -50% loops seamlessly. */
 @keyframes marquee {
     from {
@@ -200,9 +217,13 @@
 .js [data-reveal] {
     opacity: 0;
     transform: translateY(16px);
+    /* Hover effects of revealed cards (border, shadow, background) keep animating smoothly too. */
     transition:
         opacity 0.45s ease-out,
-        transform 0.45s ease-out;
+        transform 0.45s ease-out,
+        border-color 0.35s ease-out,
+        box-shadow 0.35s ease-out,
+        background-color 0.35s ease-out;
 }
 
 /* Staggered reveal only where the items sit side by side; stacked on phones they appear as you scroll. */

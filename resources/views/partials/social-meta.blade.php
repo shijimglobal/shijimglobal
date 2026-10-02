@@ -1,13 +1,16 @@
 {{-- Search engine and link preview (Facebook, Messenger, Telegram, X) metadata. --}}
 @php
     $shareTitle = __(config('company.name')).' — '.__(config('company.slogan'));
-    $shareDescription = __('Company websites, online payments, e-commerce solutions, server setup and server rental services.');
+    $shareDescription = __('We build company websites and online stores, connect QR and card payments, and provide server setup and rental. More opportunities, lower costs.');
     $shareImage = asset('assets/og/og-image.png').'?v='.@filemtime(public_path('assets/og/og-image.png'));
     $currentLocale = app()->getLocale();
     $openGraphLocales = ['mn' => 'mn_MN', 'en' => 'en_US'];
 @endphp
 
 <meta name="description" content="{{ $shareDescription }}">
+@if (filled(config('services.google.site_verification')))
+    <meta name="google-site-verification" content="{{ config('services.google.site_verification') }}">
+@endif
 <link rel="canonical" href="{{ url()->current() }}">
 
 @if (filled(config('services.facebook.app_id')))

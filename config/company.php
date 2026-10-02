@@ -24,6 +24,8 @@ return [
 
     'messenger' => 'https://m.me/shijimglobal',
 
+    'facebook' => 'https://www.facebook.com/shijimglobal',
+
     /*
     |--------------------------------------------------------------------------
     | Supported Locales

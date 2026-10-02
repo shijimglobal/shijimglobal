@@ -193,8 +193,8 @@
 
             <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 @foreach ($services as $service)
-                    <article class="group relative overflow-hidden rounded-3xl border border-base-300 bg-base-100 p-8 transition duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 {{ $service['class'] }}" data-reveal>
-                        <div class="pointer-events-none absolute -top-20 -right-20 size-48 glow-primary/20 opacity-0 transition group-hover:opacity-100"></div>
+                    <article class="group relative overflow-hidden rounded-3xl border border-base-300 bg-base-100 p-8 hover:-translate-y-1 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 {{ $service['class'] }}" data-reveal>
+                        <div class="pointer-events-none absolute -top-32 -right-32 size-80 scale-75 glow-primary/25 opacity-0 transition-[opacity,scale] duration-700 ease-out group-hover:scale-100 group-hover:opacity-100"></div>
 
                         <span class="flex size-14 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-lg shadow-primary/25">
                             <i class="{{ $service['icon'] }} text-3xl"></i>
@@ -379,8 +379,9 @@
     <x-facebook-page />
 
     {{-- Contact --}}
-    <section id="contact" class="py-16 sm:py-24 lg:py-32">
-        <div class="mx-auto max-w-7xl px-3 sm:px-4 lg:px-8">
+    <section id="contact" class="relative overflow-hidden border-t border-base-300/60 bg-base-200 py-16 sm:py-24">
+        <div class="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black_15%,transparent_65%)]"></div>
+        <div class="relative mx-auto max-w-7xl px-3 sm:px-4 lg:px-8">
             <div class="relative overflow-hidden rounded-3xl bg-brand-gradient px-4 py-8 shadow-2xl shadow-primary/30 sm:rounded-[2.5rem] sm:p-10 lg:p-14">
                 <img src="{{ asset('assets/logo/Asset 7.png') }}" alt="" aria-hidden="true" class="animate-spin-slow pointer-events-none absolute -bottom-24 -left-24 size-96 opacity-10 brightness-0 invert">
 

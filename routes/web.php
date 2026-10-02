@@ -8,11 +8,14 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home')->name('home');
 
 Route::get('/locale/{locale}', LocaleController::class)->name('locale.switch');
+
+Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
 
 Route::post('/contact', [ContactController::class, 'store'])
     ->middleware('throttle:5,1')

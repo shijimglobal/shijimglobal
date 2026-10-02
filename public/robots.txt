@@ -1,2 +1,7 @@
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /modify
+Disallow: /login
+Disallow: /locale/
+
+Sitemap: https://shijimglobal.com/sitemap.xml

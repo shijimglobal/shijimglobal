@@ -35,6 +35,10 @@ return [
         ],
     ],
 
+    'google' => [
+        'site_verification' => env('GOOGLE_SITE_VERIFICATION'),
+    ],
+
     'facebook' => [
         'app_id' => env('FACEBOOK_APP_ID'),
         'page_id' => env('FACEBOOK_PAGE_ID'),

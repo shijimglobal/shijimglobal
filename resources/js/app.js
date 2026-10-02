@@ -14,6 +14,9 @@ const revealObserver = new IntersectionObserver(
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
                 revealObserver.unobserve(entry.target);
+
+                // Once revealed, drop the stagger delay so later hover effects react instantly.
+                entry.target.addEventListener('transitionend', () => entry.target.style.setProperty('--reveal-delay', '0s'), { once: true });
             }
         });
     },

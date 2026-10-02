@@ -1,4 +1,4 @@
-<section id="facebook" class="pt-16 pb-4 sm:pt-24 sm:pb-8 lg:pt-32">
+<section id="facebook" class="py-16 sm:py-24">
     <div class="mx-auto max-w-7xl px-3 sm:px-4 lg:px-8">
         <div
             class="relative grid items-center gap-10 overflow-hidden rounded-3xl border border-[#1877f2]/15 bg-gradient-to-br from-[#1877f2]/[0.07] via-base-100 to-brand-indigo/[0.07] px-5 py-10 sm:rounded-[2.5rem] sm:p-10 lg:grid-cols-2 lg:gap-16 lg:p-14">

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="shijim">
 <head>
-    @include('partials.head', ['title' => $title ?? __(config('company.name')).' — '.__(config('company.slogan'))])
+    @include('partials.head', ['title' => $title ?? __(config('company.name')).' — '.__('Website development, online payments and server rental')])
     @include('partials.social-meta')
+    @include('partials.structured-data')
 </head>
-<body class="bg-base-100 text-base-content font-sans antialiased transition-colors duration-300">
+<body class="no-text-select bg-base-100 text-base-content font-sans antialiased transition-colors duration-300">
     @include('partials.navbar')
 
     <main>
