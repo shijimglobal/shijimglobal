@@ -2,7 +2,7 @@
 @php
     $shareTitle = __(config('company.name')).' — '.__(config('company.slogan'));
     $shareDescription = __('Company websites, online payments, e-commerce solutions, server setup and server rental services.');
-    $shareImage = asset('assets/og/og-image.png');
+    $shareImage = asset('assets/og/og-image.png').'?v='.@filemtime(public_path('assets/og/og-image.png'));
     $currentLocale = app()->getLocale();
     $openGraphLocales = ['mn' => 'mn_MN', 'en' => 'en_US'];
 @endphp

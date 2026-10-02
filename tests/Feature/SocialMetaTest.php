@@ -3,7 +3,7 @@
 test('home page has open graph tags with a properly sized share image', function () {
     $this->get(route('home'))
         ->assertOk()
-        ->assertSee('<meta property="og:image" content="'.asset('assets/og/og-image.png').'">', false)
+        ->assertSee('<meta property="og:image" content="'.asset('assets/og/og-image.png').'?v='.filemtime(public_path('assets/og/og-image.png')).'">', false)
         ->assertSee('<meta property="og:image:width" content="1200">', false)
         ->assertSee('<meta property="og:image:height" content="630">', false)
         ->assertSee('<meta property="og:title" content="Шижим Глобал ХХК — Илүү их боломж, илүү бага зардал">', false)
