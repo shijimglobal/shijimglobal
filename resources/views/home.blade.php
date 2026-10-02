@@ -99,12 +99,12 @@
                 </p>
 
                 <div class="mt-10 flex flex-wrap gap-4">
-                    <a href="#contact" class="btn btn-lg rounded-2xl border-0 bg-brand-gradient px-7 text-white shadow-xl shadow-primary/30 hover:opacity-90">
+                    <a href="#contact" class="btn btn-cta border-0 bg-brand-gradient text-white shadow-xl shadow-primary/30 hover:opacity-90">
                         {{ __('Get a quote') }}
-                        <i class="icon-[tabler--arrow-right] text-xl"></i>
+                        <i class="icon-[tabler--arrow-right] text-lg"></i>
                     </a>
-                    <a href="#services" class="btn btn-lg btn-outline rounded-2xl border-base-300 bg-base-100 px-7 hover:border-primary hover:bg-primary/5 hover:text-primary">
-                        <i class="icon-[tabler--layout-grid] text-xl"></i>
+                    <a href="#services" class="btn btn-cta btn-outline border-base-300 bg-base-100 hover:border-primary hover:bg-primary/5 hover:text-primary">
+                        <i class="icon-[tabler--layout-grid] text-lg"></i>
                         {{ __('View services') }}
                     </a>
                 </div>
@@ -328,7 +328,7 @@
                 @foreach ($processSteps as $processStep)
                     <li class="relative text-center" data-reveal>
                         <div class="relative mx-auto flex size-20 items-center justify-center rounded-3xl border border-base-300 bg-base-100 shadow-lg shadow-primary/10">
-                            <i class="{{ $processStep['icon'] }} text-gradient text-4xl"></i>
+                            <i class="{{ $processStep['icon'] }} icon-gradient text-4xl"></i>
                             <span class="absolute -top-2 -right-2 flex size-7 items-center justify-center rounded-full bg-brand-gradient text-xs font-bold text-white">
                                 {{ $loop->iteration }}
                             </span>
@@ -349,8 +349,8 @@
                 <span class="text-sm font-bold tracking-widest text-primary uppercase">FAQ</span>
                 <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">{{ __('Frequently asked questions') }}</h2>
                 <p class="mt-4 text-lg text-base-content/70">{{ __('Didn’t find your answer? Contact us directly.') }}</p>
-                <a href="#contact" class="btn btn-primary btn-soft mt-8 rounded-2xl">
-                    <i class="icon-[tabler--message-circle] text-xl"></i>
+                <a href="#contact" class="btn btn-cta btn-primary btn-soft mt-8">
+                    <i class="icon-[tabler--message-circle] text-lg"></i>
                     {{ __('Ask a question') }}
                 </a>
             </div>
@@ -503,9 +503,9 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-block mt-7 h-14 rounded-2xl border-0 bg-brand-gradient text-base text-white shadow-lg shadow-primary/30 hover:opacity-90">
+                        <button type="submit" class="btn btn-cta btn-block mt-7 border-0 bg-brand-gradient text-white shadow-lg shadow-primary/30 hover:opacity-90">
                             {{ __('Send request') }}
-                            <i class="icon-[tabler--send] text-xl"></i>
+                            <i class="icon-[tabler--send] text-lg"></i>
                         </button>
 
                         <p class="mt-4 flex items-center justify-center gap-2 text-center text-sm text-base-content/55">

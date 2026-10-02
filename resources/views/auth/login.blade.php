@@ -92,9 +92,9 @@
                                 {{ __('Remember me') }}
                             </label>
 
-                            <button type="submit" class="btn btn-block h-13 rounded-2xl border-0 bg-brand-gradient text-base text-white shadow-lg shadow-primary/30 hover:opacity-90">
+                            <button type="submit" class="btn btn-cta btn-block border-0 bg-brand-gradient text-white shadow-lg shadow-primary/30 hover:opacity-90">
                                 {{ __('Sign in') }}
-                                <i class="icon-[tabler--login-2] text-xl"></i>
+                                <i class="icon-[tabler--login-2] text-lg"></i>
                             </button>
                         </form>
                     </div>

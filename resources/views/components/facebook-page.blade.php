@@ -110,14 +110,14 @@
 
                     <div class="mt-5 grid gap-2 sm:mt-6 {{ config('company.messenger') ? 'grid-cols-2' : '' }}">
                         <a href="{{ $profile['link'] }}" target="_blank" rel="noopener"
-                            class="btn h-11 rounded-xl text-sm sm:h-12 sm:rounded-2xl sm:text-base border-0 bg-[#1877f2] text-white shadow-lg shadow-[#1877f2]/30 hover:bg-[#166fe0]">
-                            <i class="icon-[tabler--user-plus] text-base sm:text-lg"></i>
+                            class="btn btn-cta border-0 bg-[#1877f2] text-white shadow-lg shadow-[#1877f2]/30 hover:bg-[#166fe0]">
+                            <i class="icon-[tabler--user-plus] text-lg"></i>
                             {{ __('Follow') }}
                         </a>
                         @if (config('company.messenger'))
                             <a href="{{ config('company.messenger') }}" data-desktop-href="{{ \App\Services\FacebookPageService::desktopMessengerUrl() }}" data-app-href="{{ \App\Services\FacebookPageService::messengerAppUrl() }}" target="_blank" rel="noopener"
-                                class="btn btn-outline h-11 rounded-xl text-sm sm:h-12 sm:rounded-2xl sm:text-base border-base-300 hover:border-[#1877f2] hover:bg-[#1877f2]/5 hover:text-[#1877f2]">
-                                <i class="icon-[tabler--brand-messenger] text-base sm:text-lg"></i>
+                                class="btn btn-cta btn-outline border-base-300 hover:border-[#1877f2] hover:bg-[#1877f2]/5 hover:text-[#1877f2]">
+                                <i class="icon-[tabler--brand-messenger] text-lg"></i>
                                 {{ __('Message') }}
                             </a>
                         @endif

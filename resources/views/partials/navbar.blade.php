@@ -54,7 +54,7 @@
                     <i class="icon-[tabler--sun] hidden text-xl dark:inline-block"></i>
                 </button>
 
-                <a href="#contact" class="btn hidden h-11 min-h-11 rounded-xl border-0 bg-brand-gradient px-5 text-sm text-white shadow-lg shadow-primary/25 hover:opacity-90 sm:inline-flex">
+                <a href="#contact" class="btn btn-cta hidden border-0 bg-brand-gradient text-white shadow-lg shadow-primary/25 hover:opacity-90 sm:inline-flex">
                     {{ __('Get a quote') }}
                     <i class="icon-[tabler--arrow-up-right] text-lg"></i>
                 </a>
@@ -95,7 +95,7 @@
                     </div>
                 </li>
                 <li class="pt-2 sm:hidden">
-                    <a href="#contact" class="btn btn-block h-12 rounded-xl border-0 bg-brand-gradient text-white">
+                    <a href="#contact" class="btn btn-cta btn-block border-0 bg-brand-gradient text-white">
                         {{ __('Get a quote') }}
                         <i class="icon-[tabler--arrow-up-right] text-lg"></i>
                     </a>

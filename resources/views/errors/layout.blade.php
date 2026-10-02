@@ -34,12 +34,12 @@
                 <p class="mx-auto mt-3 max-w-md leading-relaxed text-base-content/65">{{ $description }}</p>
 
                 <div class="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
-                    <a href="{{ url('/') }}" class="btn h-12 rounded-2xl border-0 bg-brand-gradient px-6 text-white shadow-lg shadow-primary/30 hover:opacity-90">
-                        <i class="icon-[tabler--home] text-xl"></i>
+                    <a href="{{ url('/') }}" class="btn btn-cta border-0 bg-brand-gradient text-white shadow-lg shadow-primary/30 hover:opacity-90">
+                        <i class="icon-[tabler--home] text-lg"></i>
                         {{ __('Back to home') }}
                     </a>
-                    <button type="button" onclick="history.length > 1 ? history.back() : location.assign('{{ url('/') }}')" class="btn btn-outline h-12 rounded-2xl border-base-300 bg-base-100 px-6 hover:border-primary hover:bg-primary/5 hover:text-primary">
-                        <i class="icon-[tabler--arrow-left] text-xl"></i>
+                    <button type="button" onclick="history.length > 1 ? history.back() : location.assign('{{ url('/') }}')" class="btn btn-cta btn-outline border-base-300 bg-base-100 hover:border-primary hover:bg-primary/5 hover:text-primary">
+                        <i class="icon-[tabler--arrow-left] text-lg"></i>
                         {{ __('Go back') }}
                     </button>
                 </div>
