@@ -16,7 +16,7 @@ return [
 
     'slogan' => 'More opportunities, lower costs',
 
-    'email' => 'info@shijimglobal.mn',
+    'email' => 'info@shijimglobal.com',
 
     'phone' => '+976 9920 1210',
 
