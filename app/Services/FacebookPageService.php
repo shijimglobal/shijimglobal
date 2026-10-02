@@ -85,6 +85,16 @@ class FacebookPageService
     }
 
     /**
+     * Get the Messenger app deep link that opens the page conversation on phones.
+     */
+    public static function messengerAppUrl(): ?string
+    {
+        $pageId = config('services.facebook.page_id');
+
+        return ctype_digit((string) $pageId) ? 'fb-messenger://user-thread/'.$pageId : null;
+    }
+
+    /**
      * Forget the cached profile so the next request fetches fresh data.
      */
     public function flush(): void

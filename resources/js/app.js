@@ -113,6 +113,27 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
             link.href = link.dataset.desktopHref;
         }
     });
+} else {
+    // Phones: open the Messenger app directly, falling back to the m.me page
+    // when the app is not installed (the page stays visible after the attempt).
+    document.querySelectorAll('a[data-app-href]').forEach((link) => {
+        if (!link.dataset.appHref) {
+            return;
+        }
+
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            const fallbackTimer = setTimeout(() => {
+                if (document.visibilityState === 'visible') {
+                    window.location.href = link.href;
+                }
+            }, 1500);
+
+            document.addEventListener('visibilitychange', () => clearTimeout(fallbackTimer), { once: true });
+            window.location.href = link.dataset.appHref;
+        });
+    });
 }
 
 document.querySelectorAll('[data-theme-toggle]').forEach((toggle) => {
