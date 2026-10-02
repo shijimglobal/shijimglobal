@@ -89,16 +89,23 @@ test('section is hidden when the api fails and nothing was cached', function () 
         ->assertDontSee('id="facebook"', false);
 });
 
-test('messenger buttons carry a facebook.com inbox link for desktop', function () {
+test('messenger buttons carry a facebook.com inbox link using the page username', function () {
+    config(['company.messenger' => 'https://m.me/shijimglobal']);
     fakeFacebookPage();
 
     $this->get(route('home'))
         ->assertOk()
-        ->assertSee('data-desktop-href="https://www.facebook.com/messages/t/123456"', false);
+        ->assertSee('data-desktop-href="https://www.facebook.com/messages/t/shijimglobal"', false);
 });
 
-test('desktop messenger link is empty without a page id', function () {
-    config(['services.facebook.page_id' => null]);
+test('desktop messenger link falls back to the page id', function () {
+    config(['company.messenger' => null]);
+
+    expect(FacebookPageService::desktopMessengerUrl())->toBe('https://www.facebook.com/messages/t/123456');
+});
+
+test('desktop messenger link is empty without username or page id', function () {
+    config(['company.messenger' => null, 'services.facebook.page_id' => null]);
 
     expect(FacebookPageService::desktopMessengerUrl())->toBeNull();
 });

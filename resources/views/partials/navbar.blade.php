@@ -31,7 +31,7 @@
 
             {{-- Actions --}}
             <div class="flex items-center gap-2">
-                <div class="dropdown relative inline-flex [--placement:bottom-end]">
+                <div class="dropdown relative hidden [--placement:bottom-end] lg:inline-flex">
                     <button id="locale-dropdown" type="button" class="dropdown-toggle btn btn-text h-10 min-h-10 gap-1.5 rounded-xl px-3 text-sm font-bold uppercase" aria-haspopup="menu" aria-expanded="false" aria-label="{{ __('Change language') }}">
                         <i class="ti ti-world text-lg"></i>
                         {{ $currentLocale }}
@@ -77,6 +77,23 @@
                         </a>
                     </li>
                 @endforeach
+                <li class="mt-2 border-t border-base-300/70 pt-3">
+                    <div class="flex items-center justify-between gap-3 px-4 py-1">
+                        <span class="flex items-center gap-2 text-sm font-semibold text-base-content/70">
+                            <i class="ti ti-world text-lg"></i>
+                            {{ __('Language') }}
+                        </span>
+                        <div class="inline-flex rounded-xl bg-base-200/80 p-1" role="group" aria-label="{{ __('Change language') }}">
+                            @foreach (config('company.locales') as $localeCode => $localeName)
+                                <a href="{{ route('locale.switch', $localeCode) }}" title="{{ $localeName }}" @class([
+                                    'rounded-lg px-3.5 py-1.5 text-sm font-bold uppercase transition',
+                                    'bg-base-100 text-primary shadow-sm' => $localeCode === $currentLocale,
+                                    'text-base-content/60 hover:text-primary' => $localeCode !== $currentLocale,
+                                ]) @if ($localeCode === $currentLocale) aria-current="true" @endif>{{ $localeCode }}</a>
+                            @endforeach
+                        </div>
+                    </div>
+                </li>
                 <li class="pt-2 sm:hidden">
                     <a href="#contact" class="btn btn-block h-12 rounded-xl border-0 bg-brand-gradient text-white">
                         {{ __('Get a quote') }}

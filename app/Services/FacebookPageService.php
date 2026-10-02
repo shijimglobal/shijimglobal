@@ -78,9 +78,10 @@ class FacebookPageService
      */
     public static function desktopMessengerUrl(): ?string
     {
-        $pageId = config('services.facebook.page_id');
+        $messengerUsername = trim((string) parse_url((string) config('company.messenger'), PHP_URL_PATH), '/');
+        $conversationTarget = filled($messengerUsername) ? $messengerUsername : config('services.facebook.page_id');
 
-        return filled($pageId) ? 'https://www.facebook.com/messages/t/'.$pageId : null;
+        return filled($conversationTarget) ? 'https://www.facebook.com/messages/t/'.$conversationTarget : null;
     }
 
     /**
