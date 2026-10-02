@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
+use function Illuminate\Support\defer;
+
 class FacebookPageService
 {
     /**
@@ -23,6 +25,11 @@ class FacebookPageService
      * Cache key that pauses API calls for a short while after a failure.
      */
     public const FAILURE_CACHE_KEY = 'facebook-page.profile.failed';
+
+    /**
+     * Cache key that prevents several requests from refreshing the profile at once.
+     */
+    public const REFRESH_LOCK_CACHE_KEY = 'facebook-page.profile.refreshing';
 
     /**
      * Page fields requested from the Graph API.
@@ -52,16 +59,40 @@ class FacebookPageService
             return $cachedProfile;
         }
 
-        if (Cache::has(self::FAILURE_CACHE_KEY)) {
-            return Cache::get(self::LAST_KNOWN_CACHE_KEY);
+        $lastKnownProfile = Cache::get(self::LAST_KNOWN_CACHE_KEY);
+
+        // Serve the previous profile immediately and refresh it after the response is sent,
+        // so visitors never wait for the Graph API.
+        if ($lastKnownProfile !== null) {
+            if (! Cache::has(self::FAILURE_CACHE_KEY) && Cache::add(self::REFRESH_LOCK_CACHE_KEY, true, 60)) {
+                defer(fn () => $this->refresh());
+            }
+
+            return $lastKnownProfile;
         }
 
+        if (Cache::has(self::FAILURE_CACHE_KEY)) {
+            return null;
+        }
+
+        return $this->refresh();
+    }
+
+    /**
+     * Fetch the profile from the Graph API and store it in the cache.
+     *
+     * @return array{name: string, about: ?string, category: ?string, link: string, followers_count: int, fan_count: int, picture_url: ?string, cover_url: ?string}|null
+     */
+    public function refresh(): ?array
+    {
         $freshProfile = $this->fetch();
+
+        Cache::forget(self::REFRESH_LOCK_CACHE_KEY);
 
         if ($freshProfile === null) {
             Cache::put(self::FAILURE_CACHE_KEY, true, now()->addMinutes(10));
 
-            return Cache::get(self::LAST_KNOWN_CACHE_KEY);
+            return null;
         }
 
         Cache::put(self::CACHE_KEY, $freshProfile, now()->addMinutes(config('services.facebook.cache_minutes')));
@@ -127,8 +158,8 @@ class FacebookPageService
         $pageId = config('services.facebook.page_id');
 
         try {
-            $response = Http::timeout(5)
-                ->retry(2, 200, throw: false)
+            $response = Http::connectTimeout(3)->timeout(4)
+                ->retry(1, 200, throw: false)
                 ->get(sprintf('https://graph.facebook.com/%s/%s', config('services.facebook.graph_version'), $pageId), [
                     'fields' => self::FIELDS,
                     'access_token' => config('services.facebook.page_access_token'),

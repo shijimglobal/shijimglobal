@@ -1,5 +1,12 @@
-import './bootstrap';
-import 'flyonui/flyonui';
+// Only the FlyonUI plugins the site uses (collapse menu, dropdowns, FAQ accordion, service select).
+import 'flyonui/dist/collapse.mjs';
+import 'flyonui/dist/dropdown.mjs';
+import 'flyonui/dist/accordion.mjs';
+import 'flyonui/dist/select.mjs';
+
+// FlyonUI initialises on window "load", which waits for every image and font.
+// Initialise right away so menus and dropdowns respond as soon as the page is interactive.
+[window.HSCollapse, window.HSDropdown, window.HSAccordion, window.HSSelect].forEach((plugin) => plugin?.autoInit());
 
 const revealObserver = new IntersectionObserver(
     (entries) => {
@@ -160,7 +167,7 @@ document.querySelectorAll('[data-password-toggle]').forEach((toggle) => {
         const isHidden = passwordInput.type === 'password';
 
         passwordInput.type = isHidden ? 'text' : 'password';
-        toggle.querySelector('i')?.classList.replace(isHidden ? 'ti-eye' : 'ti-eye-off', isHidden ? 'ti-eye-off' : 'ti-eye');
+        toggle.querySelector('i')?.classList.replace(isHidden ? 'icon-[tabler--eye]' : 'icon-[tabler--eye-off]', isHidden ? 'icon-[tabler--eye-off]' : 'icon-[tabler--eye]');
     });
 });
 

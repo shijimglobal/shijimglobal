@@ -1,6 +1,8 @@
 <?php
 
 use App\Services\FacebookPageService;
+use Illuminate\Support\Defer\DeferredCallbackCollection;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
 function fakeFacebookPage(int $followersCount = 12450): void
@@ -79,6 +81,27 @@ test('last known profile is shown when the api fails', function () {
     Http::fake(['graph.facebook.com/*' => Http::response(['error' => ['message' => 'Invalid token']], 400)]);
 
     expect($facebookPageService->profile()['followers_count'])->toBe(5000);
+});
+
+test('expired profile is served instantly and refreshed after the response', function () {
+    $page = ['name' => 'Shijim Global', 'link' => 'https://www.facebook.com/shijimglobal', 'fan_count' => 1];
+    Http::fake([
+        'graph.facebook.com/*' => Http::sequence()
+            ->push([...$page, 'followers_count' => 5000])
+            ->push([...$page, 'followers_count' => 7000]),
+    ]);
+
+    $facebookPageService = app(FacebookPageService::class);
+    $facebookPageService->profile();
+    Cache::forget(FacebookPageService::CACHE_KEY);
+
+    expect($facebookPageService->profile()['followers_count'])->toBe(5000);
+    Http::assertSentCount(1);
+
+    app(DeferredCallbackCollection::class)->invoke();
+
+    Http::assertSentCount(2);
+    expect($facebookPageService->profile()['followers_count'])->toBe(7000);
 });
 
 test('section is hidden when the api fails and nothing was cached', function () {

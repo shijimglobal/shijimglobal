@@ -1,5 +1,7 @@
 @import 'tailwindcss';
-@import '@tabler/icons-webfont/dist/tabler-icons.min.css';
+
+/* Tabler icons as inline SVG masks: only icons used in the templates end up in the CSS. */
+@plugin '@iconify/tailwind4';
 
 @plugin 'flyonui';
 @import '../../node_modules/flyonui/variants.css';
@@ -114,6 +116,12 @@
     background-image: linear-gradient(120deg, var(--color-brand-blue), var(--color-brand-indigo) 50%, var(--color-brand-violet));
 }
 
+/* Soft radial glow; much cheaper to paint than a blurred element (filter: blur). */
+@utility glow-* {
+    background-image: radial-gradient(closest-side, --value(--color-*, [color]) 0%, transparent 100%);
+    background-image: radial-gradient(closest-side, color-mix(in oklab, --value(--color-*, [color]) calc(--modifier(integer) * 1%), transparent) 0%, transparent 100%);
+}
+
 @utility bg-grid {
     background-image:
         linear-gradient(to right, rgb(75 82 255 / 0.07) 1px, transparent 1px),
@@ -159,22 +167,30 @@
     }
 }
 
-[data-reveal] {
+/* Content is only hidden for the reveal animation once JavaScript is known to run (see partials/head). */
+.js [data-reveal] {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(16px);
     transition:
-        opacity 0.7s ease,
-        transform 0.7s ease;
+        opacity 0.45s ease-out,
+        transform 0.45s ease-out;
 }
 
-[data-reveal].is-visible {
+.js [data-reveal].is-visible {
     opacity: 1;
     transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    [data-reveal] {
+    .js [data-reveal] {
         opacity: 1;
         transform: none;
+        transition: none;
+    }
+
+    .animate-spin-slow,
+    .animate-float,
+    .animate-ping {
+        animation: none;
     }
 }

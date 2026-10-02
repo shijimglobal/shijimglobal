@@ -21,7 +21,7 @@ test('messenger button is hidden when no chat link is configured', function () {
 
     $this->get(route('home'))
         ->assertOk()
-        ->assertDontSee('ti-brand-messenger', false);
+        ->assertDontSee('tabler--brand-messenger', false);
 });
 
 test('valid contact request is stored as an unread message', function () {

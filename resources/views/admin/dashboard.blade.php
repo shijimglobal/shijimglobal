@@ -5,10 +5,10 @@
 
 @php
     $statCards = [
-        ['label' => __('Total requests'), 'value' => $totalMessagesCount, 'icon' => 'ti-inbox', 'tone' => 'bg-primary/10 text-primary'],
-        ['label' => __('Unread'), 'value' => $unreadMessagesCount, 'icon' => 'ti-mail-opened', 'tone' => 'bg-warning/15 text-warning'],
-        ['label' => __('Today'), 'value' => $todayMessagesCount, 'icon' => 'ti-calendar-event', 'tone' => 'bg-secondary/10 text-secondary'],
-        ['label' => __('Last 7 days'), 'value' => $weekMessagesCount, 'icon' => 'ti-trending-up', 'tone' => 'bg-success/15 text-success'],
+        ['label' => __('Total requests'), 'value' => $totalMessagesCount, 'icon' => 'icon-[tabler--inbox]', 'tone' => 'bg-primary/10 text-primary'],
+        ['label' => __('Unread'), 'value' => $unreadMessagesCount, 'icon' => 'icon-[tabler--mail-opened]', 'tone' => 'bg-warning/15 text-warning'],
+        ['label' => __('Today'), 'value' => $todayMessagesCount, 'icon' => 'icon-[tabler--calendar-event]', 'tone' => 'bg-secondary/10 text-secondary'],
+        ['label' => __('Last 7 days'), 'value' => $weekMessagesCount, 'icon' => 'icon-[tabler--trending-up]', 'tone' => 'bg-success/15 text-success'],
     ];
 
     $highestServiceCount = max($messagesPerService->max() ?? 0, 1);
@@ -21,7 +21,7 @@
                 <div class="flex items-center justify-between">
                     <p class="text-sm font-semibold text-base-content/60">{{ $statCard['label'] }}</p>
                     <span class="flex size-11 items-center justify-center rounded-2xl {{ $statCard['tone'] }}">
-                        <i class="ti {{ $statCard['icon'] }} text-2xl"></i>
+                        <i class="{{ $statCard['icon'] }} text-2xl"></i>
                     </span>
                 </div>
                 <p class="mt-4 text-3xl font-extrabold tracking-tight">{{ number_format($statCard['value']) }}</p>
@@ -36,7 +36,7 @@
                 <h2 class="text-lg font-bold">{{ __('Latest requests') }}</h2>
                 <a href="{{ route('admin.messages.index') }}" class="btn btn-text btn-sm gap-1 rounded-xl text-primary">
                     {{ __('View all') }}
-                    <i class="ti ti-arrow-right"></i>
+                    <i class="icon-[tabler--arrow-right]"></i>
                 </a>
             </div>
 
@@ -60,7 +60,7 @@
             @empty
                 <div class="flex flex-col items-center px-6 py-14 text-center">
                     <span class="flex size-16 items-center justify-center rounded-3xl bg-base-200 text-base-content/40">
-                        <i class="ti ti-inbox-off text-3xl"></i>
+                        <i class="icon-[tabler--inbox-off] text-3xl"></i>
                     </span>
                     <p class="mt-4 font-semibold">{{ __('No requests yet') }}</p>
                     <p class="mt-1 text-sm text-base-content/55">{{ __('Requests sent from the website contact form will appear here.') }}</p>

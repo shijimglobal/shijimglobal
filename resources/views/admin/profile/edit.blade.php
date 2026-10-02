@@ -13,7 +13,7 @@
             <p class="mt-4 truncate text-lg font-bold">{{ $user->name }}</p>
             <p class="truncate text-sm text-base-content/55">{{ $user->email }}</p>
             <span class="mt-4 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                <i class="ti ti-shield-check"></i>
+                <i class="icon-[tabler--shield-check]"></i>
                 {{ __('Administrator') }}
             </span>
             <p class="mt-6 text-xs text-base-content/50">{{ __('Member since :date', ['date' => $user->created_at->format('Y-m-d')]) }}</p>
@@ -23,7 +23,7 @@
             {{-- Profile information --}}
             <section class="rounded-3xl border border-base-300/70 bg-base-100">
                 <div class="flex items-center gap-3 border-b border-base-300/70 px-5 py-4 sm:px-6">
-                    <span class="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary"><i class="ti ti-user-edit text-xl"></i></span>
+                    <span class="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary"><i class="icon-[tabler--user-edit] text-xl"></i></span>
                     <div>
                         <h2 class="font-bold">{{ __('Profile information') }}</h2>
                         <p class="text-sm text-base-content/55">{{ __('Your name and the email address you sign in with.') }}</p>
@@ -37,28 +37,28 @@
                     <div>
                         <label class="field-label" for="name">{{ __('Name') }}</label>
                         <div class="relative">
-                            <i class="ti ti-user pointer-events-none absolute top-1/2 left-4 z-10 -translate-y-1/2 text-xl text-base-content/40"></i>
+                            <i class="icon-[tabler--user] pointer-events-none absolute top-1/2 left-4 z-10 -translate-y-1/2 text-xl text-base-content/40"></i>
                             <input type="text" id="name" name="name" value="{{ old('name', $user->name) }}" class="input field-shell ps-12 @error('name') is-invalid @enderror" autocomplete="name" required>
                         </div>
                         @error('name')
-                            <p class="field-error"><i class="ti ti-alert-circle"></i> {{ $message }}</p>
+                            <p class="field-error"><i class="icon-[tabler--alert-circle]"></i> {{ $message }}</p>
                         @enderror
                     </div>
 
                     <div>
                         <label class="field-label" for="email">{{ __('Email') }}</label>
                         <div class="relative">
-                            <i class="ti ti-mail pointer-events-none absolute top-1/2 left-4 z-10 -translate-y-1/2 text-xl text-base-content/40"></i>
+                            <i class="icon-[tabler--mail] pointer-events-none absolute top-1/2 left-4 z-10 -translate-y-1/2 text-xl text-base-content/40"></i>
                             <input type="email" id="email" name="email" value="{{ old('email', $user->email) }}" class="input field-shell ps-12 @error('email') is-invalid @enderror" autocomplete="username" required>
                         </div>
                         @error('email')
-                            <p class="field-error"><i class="ti ti-alert-circle"></i> {{ $message }}</p>
+                            <p class="field-error"><i class="icon-[tabler--alert-circle]"></i> {{ $message }}</p>
                         @enderror
                     </div>
 
                     <div class="flex justify-end">
                         <button type="submit" class="btn h-11 rounded-xl border-0 bg-brand-gradient px-6 text-white shadow-lg shadow-primary/25 hover:opacity-90">
-                            <i class="ti ti-device-floppy text-lg"></i>
+                            <i class="icon-[tabler--device-floppy] text-lg"></i>
                             {{ __('Save changes') }}
                         </button>
                     </div>
@@ -68,7 +68,7 @@
             {{-- Password --}}
             <section id="password" class="scroll-mt-28 rounded-3xl border border-base-300/70 bg-base-100">
                 <div class="flex items-center gap-3 border-b border-base-300/70 px-5 py-4 sm:px-6">
-                    <span class="flex size-10 items-center justify-center rounded-xl bg-warning/15 text-warning"><i class="ti ti-key text-xl"></i></span>
+                    <span class="flex size-10 items-center justify-center rounded-xl bg-warning/15 text-warning"><i class="icon-[tabler--key] text-xl"></i></span>
                     <div>
                         <h2 class="font-bold">{{ __('Change password') }}</h2>
                         <p class="text-sm text-base-content/55">{{ __('Use at least 8 characters with letters and numbers.') }}</p>
@@ -80,28 +80,28 @@
                     @method('PUT')
 
                     @foreach ([
-                        ['id' => 'current_password', 'label' => __('Current password'), 'autocomplete' => 'current-password', 'icon' => 'ti-lock'],
-                        ['id' => 'password', 'label' => __('New password'), 'autocomplete' => 'new-password', 'icon' => 'ti-key'],
-                        ['id' => 'password_confirmation', 'label' => __('Confirm new password'), 'autocomplete' => 'new-password', 'icon' => 'ti-key'],
+                        ['id' => 'current_password', 'label' => __('Current password'), 'autocomplete' => 'current-password', 'icon' => 'icon-[tabler--lock]'],
+                        ['id' => 'password', 'label' => __('New password'), 'autocomplete' => 'new-password', 'icon' => 'icon-[tabler--key]'],
+                        ['id' => 'password_confirmation', 'label' => __('Confirm new password'), 'autocomplete' => 'new-password', 'icon' => 'icon-[tabler--key]'],
                     ] as $passwordField)
                         <div>
                             <label class="field-label" for="{{ $passwordField['id'] }}">{{ $passwordField['label'] }}</label>
                             <div class="relative">
-                                <i class="ti {{ $passwordField['icon'] }} pointer-events-none absolute top-1/2 left-4 z-10 -translate-y-1/2 text-xl text-base-content/40"></i>
+                                <i class="{{ $passwordField['icon'] }} pointer-events-none absolute top-1/2 left-4 z-10 -translate-y-1/2 text-xl text-base-content/40"></i>
                                 <input type="password" id="{{ $passwordField['id'] }}" name="{{ $passwordField['id'] }}" class="input field-shell ps-12 pe-12 @if ($errors->updatePassword->has($passwordField['id'])) is-invalid @endif" autocomplete="{{ $passwordField['autocomplete'] }}" required>
                                 <button type="button" data-password-toggle="#{{ $passwordField['id'] }}" class="absolute top-1/2 right-2 z-10 flex size-9 -translate-y-1/2 items-center justify-center rounded-lg text-base-content/50 transition hover:bg-base-200 hover:text-primary" aria-label="{{ __('Show password') }}">
-                                    <i class="ti ti-eye text-xl"></i>
+                                    <i class="icon-[tabler--eye] text-xl"></i>
                                 </button>
                             </div>
                             @if ($errors->updatePassword->has($passwordField['id']))
-                                <p class="field-error"><i class="ti ti-alert-circle"></i> {{ $errors->updatePassword->first($passwordField['id']) }}</p>
+                                <p class="field-error"><i class="icon-[tabler--alert-circle]"></i> {{ $errors->updatePassword->first($passwordField['id']) }}</p>
                             @endif
                         </div>
                     @endforeach
 
                     <div class="flex justify-end">
                         <button type="submit" class="btn h-11 rounded-xl border-0 bg-brand-gradient px-6 text-white shadow-lg shadow-primary/25 hover:opacity-90">
-                            <i class="ti ti-lock-check text-lg"></i>
+                            <i class="icon-[tabler--lock-check] text-lg"></i>
                             {{ __('Update password') }}
                         </button>
                     </div>

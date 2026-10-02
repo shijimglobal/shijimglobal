@@ -5,7 +5,7 @@
 
 @section('content')
     <a href="{{ route('admin.messages.index') }}" class="btn btn-text btn-sm mb-4 gap-1 rounded-xl px-2">
-        <i class="ti ti-arrow-left text-lg"></i>
+        <i class="icon-[tabler--arrow-left] text-lg"></i>
         {{ __('Back to messages') }}
     </a>
 
@@ -26,21 +26,21 @@
                 <h2 class="text-lg font-bold">{{ __('Contact details') }}</h2>
                 <ul class="mt-5 space-y-4">
                     <li class="flex items-center gap-3">
-                        <span class="flex size-10 items-center justify-center rounded-xl bg-base-200 text-base-content/60"><i class="ti ti-user text-xl"></i></span>
+                        <span class="flex size-10 items-center justify-center rounded-xl bg-base-200 text-base-content/60"><i class="icon-[tabler--user] text-xl"></i></span>
                         <div class="min-w-0">
                             <p class="text-xs text-base-content/55">{{ __('Name') }}</p>
                             <p class="truncate font-semibold">{{ $message->name }}</p>
                         </div>
                     </li>
                     <li class="flex items-center gap-3">
-                        <span class="flex size-10 items-center justify-center rounded-xl bg-base-200 text-base-content/60"><i class="ti ti-phone text-xl"></i></span>
+                        <span class="flex size-10 items-center justify-center rounded-xl bg-base-200 text-base-content/60"><i class="icon-[tabler--phone] text-xl"></i></span>
                         <div class="min-w-0">
                             <p class="text-xs text-base-content/55">{{ __('Phone') }}</p>
                             <a href="tel:{{ preg_replace('/\s+/', '', $message->phone) }}" class="truncate font-semibold hover:text-primary">{{ $message->phone }}</a>
                         </div>
                     </li>
                     <li class="flex items-center gap-3">
-                        <span class="flex size-10 items-center justify-center rounded-xl bg-base-200 text-base-content/60"><i class="ti ti-mail text-xl"></i></span>
+                        <span class="flex size-10 items-center justify-center rounded-xl bg-base-200 text-base-content/60"><i class="icon-[tabler--mail] text-xl"></i></span>
                         <div class="min-w-0">
                             <p class="text-xs text-base-content/55">{{ __('Email') }}</p>
                             @if ($message->email)
@@ -54,12 +54,12 @@
 
                 <div class="mt-6 grid gap-2 sm:grid-cols-2 xl:grid-cols-1">
                     <a href="tel:{{ preg_replace('/\s+/', '', $message->phone) }}" class="btn h-11 rounded-xl border-0 bg-brand-gradient text-white hover:opacity-90">
-                        <i class="ti ti-phone-call text-lg"></i>
+                        <i class="icon-[tabler--phone-call] text-lg"></i>
                         {{ __('Call') }}
                     </a>
                     @if ($message->email)
                         <a href="mailto:{{ $message->email }}" class="btn btn-outline h-11 rounded-xl border-base-300 hover:border-primary hover:bg-primary/5 hover:text-primary">
-                            <i class="ti ti-mail-forward text-lg"></i>
+                            <i class="icon-[tabler--mail-forward] text-lg"></i>
                             {{ __('Reply by email') }}
                         </a>
                     @endif
@@ -73,7 +73,7 @@
                         @csrf
                         @method('PATCH')
                         <button type="submit" class="btn btn-text h-11 w-full justify-start gap-3 rounded-xl px-3 font-semibold hover:bg-base-200">
-                            <i class="ti ti-mail text-xl text-primary"></i>
+                            <i class="icon-[tabler--mail] text-xl text-primary"></i>
                             {{ __('Mark as unread') }}
                         </button>
                     </form>
@@ -81,7 +81,7 @@
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-text h-11 w-full justify-start gap-3 rounded-xl px-3 font-semibold text-error hover:bg-error/10">
-                            <i class="ti ti-trash text-xl"></i>
+                            <i class="icon-[tabler--trash] text-xl"></i>
                             {{ __('Delete') }}
                         </button>
                     </form>

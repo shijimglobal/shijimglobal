@@ -36,7 +36,7 @@
                     @if ($currentService)
                         <input type="hidden" name="service" value="{{ $currentService }}">
                     @endif
-                    <i class="ti ti-search pointer-events-none absolute top-1/2 left-4 z-10 -translate-y-1/2 text-xl text-base-content/40"></i>
+                    <i class="icon-[tabler--search] pointer-events-none absolute top-1/2 left-4 z-10 -translate-y-1/2 text-xl text-base-content/40"></i>
                     <input type="search" name="search" value="{{ $filters['search'] ?? '' }}" placeholder="{{ __('Search by name, phone, email…') }}" class="input field-shell h-11 ps-12" aria-label="{{ __('Search') }}">
                 </form>
             </div>
@@ -82,12 +82,12 @@
                     <p class="mt-1 text-xs text-base-content/50 sm:col-span-2 sm:mt-0 sm:text-end">{{ $contactMessage->created_at->diffForHumans() }}</p>
                 </div>
 
-                <i class="ti ti-chevron-right hidden text-xl text-base-content/30 transition group-hover:translate-x-0.5 group-hover:text-primary sm:block"></i>
+                <i class="icon-[tabler--chevron-right] hidden text-xl text-base-content/30 transition group-hover:translate-x-0.5 group-hover:text-primary sm:block"></i>
             </a>
         @empty
             <div class="flex flex-col items-center px-6 py-16 text-center">
                 <span class="flex size-16 items-center justify-center rounded-3xl bg-base-200 text-base-content/40">
-                    <i class="ti ti-inbox-off text-3xl"></i>
+                    <i class="icon-[tabler--inbox-off] text-3xl"></i>
                 </span>
                 <p class="mt-4 font-semibold">{{ __('No requests found') }}</p>
                 <p class="mt-1 text-sm text-base-content/55">{{ __('Try changing the filters or search term.') }}</p>

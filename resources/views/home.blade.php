@@ -3,35 +3,35 @@
 @php
     $services = [
         [
-            'icon' => 'ti-world-www',
+            'icon' => 'icon-[tabler--world-www]',
             'title' => __('Company website'),
             'description' => __('A modern, fast and SEO-friendly website that presents your organization, brand and products professionally.'),
             'features' => [__('Responsive design'), __('Content management'), __('SEO setup')],
             'class' => 'lg:col-span-2',
         ],
         [
-            'icon' => 'ti-credit-card-pay',
+            'icon' => 'icon-[tabler--credit-card-pay]',
             'title' => __('Online payments'),
             'description' => __('We securely and reliably connect bank, QR and card payment solutions to your system.'),
             'features' => [__('QR payments'), __('Card payments'), __('Automatic confirmation')],
             'class' => '',
         ],
         [
-            'icon' => 'ti-shopping-bag',
+            'icon' => 'icon-[tabler--shopping-bag]',
             'title' => 'E-commerce',
             'description' => __('A full-featured online store to manage products, orders, delivery and inventory in one place.'),
             'features' => [__('Order management'), __('Inventory tracking'), __('Reports & analytics')],
             'class' => '',
         ],
         [
-            'icon' => 'ti-server-cog',
+            'icon' => 'icon-[tabler--server-cog]',
             'title' => __('Server setup'),
             'description' => __('Professional server installation, security, domain, SSL, backup and monitoring configuration.'),
             'features' => [__('SSL & security'), __('Automatic backups'), __('Monitoring')],
             'class' => '',
         ],
         [
-            'icon' => 'ti-cloud-computing',
+            'icon' => 'icon-[tabler--cloud-computing]',
             'title' => __('Server rental'),
             'description' => __('Rent servers sized to your business needs on flexible terms at an affordable price.'),
             'features' => [__('Flexible plans'), __('Scalable'), __('Technical support')],
@@ -40,30 +40,30 @@
     ];
 
     $moreOpportunities = [
-        ['icon' => 'ti-world-www', 'title' => __('Online sales 24/7'), 'description' => __('Accept orders and payments even while your business rests.')],
-        ['icon' => 'ti-arrows-maximize', 'title' => __('Built for growth'), 'description' => __('Your system scales together with your business.')],
-        ['icon' => 'ti-device-mobile', 'title' => __('On every device'), 'description' => __('Works flawlessly on phones, tablets and computers.')],
-        ['icon' => 'ti-plug-connected', 'title' => __('Integrated solution'), 'description' => __('Web, payments and servers — all connected in one place.')],
+        ['icon' => 'icon-[tabler--world-www]', 'title' => __('Online sales 24/7'), 'description' => __('Accept orders and payments even while your business rests.')],
+        ['icon' => 'icon-[tabler--arrows-maximize]', 'title' => __('Built for growth'), 'description' => __('Your system scales together with your business.')],
+        ['icon' => 'icon-[tabler--device-mobile]', 'title' => __('On every device'), 'description' => __('Works flawlessly on phones, tablets and computers.')],
+        ['icon' => 'icon-[tabler--plug-connected]', 'title' => __('Integrated solution'), 'description' => __('Web, payments and servers — all connected in one place.')],
     ];
 
     $lowerCosts = [
-        ['icon' => 'ti-receipt-off', 'title' => __('No hidden fees'), 'description' => __('Transparent pricing, clear contracts, no surprise costs.')],
-        ['icon' => 'ti-server-bolt', 'title' => __('Cost-effective servers'), 'description' => __('Pay only for the capacity you actually need.')],
-        ['icon' => 'ti-clock-bolt', 'title' => __('Time-saving delivery'), 'description' => __('A staged workflow means we deliver on time.')],
-        ['icon' => 'ti-tool', 'title' => __('Maintenance included'), 'description' => __('No need to hire extra specialists.')],
+        ['icon' => 'icon-[tabler--receipt-off]', 'title' => __('No hidden fees'), 'description' => __('Transparent pricing, clear contracts, no surprise costs.')],
+        ['icon' => 'icon-[tabler--server-bolt]', 'title' => __('Cost-effective servers'), 'description' => __('Pay only for the capacity you actually need.')],
+        ['icon' => 'icon-[tabler--clock-bolt]', 'title' => __('Time-saving delivery'), 'description' => __('A staged workflow means we deliver on time.')],
+        ['icon' => 'icon-[tabler--tool]', 'title' => __('Maintenance included'), 'description' => __('No need to hire extra specialists.')],
     ];
 
     $pillars = [
-        ['icon' => 'ti-stack-2', 'title' => __('All in one'), 'description' => __('From design to server')],
-        ['icon' => 'ti-shield-lock', 'title' => __('Reliable'), 'description' => __('SSL, backups, monitoring')],
-        ['icon' => 'ti-headset', 'title' => __('Supported'), 'description' => __('Even after launch')],
+        ['icon' => 'icon-[tabler--stack-2]', 'title' => __('All in one'), 'description' => __('From design to server')],
+        ['icon' => 'icon-[tabler--shield-lock]', 'title' => __('Reliable'), 'description' => __('SSL, backups, monitoring')],
+        ['icon' => 'icon-[tabler--headset]', 'title' => __('Supported'), 'description' => __('Even after launch')],
     ];
 
     $processSteps = [
-        ['icon' => 'ti-message-chatbot', 'title' => __('Consultation'), 'description' => __('We listen to your business goals and needs to define the right solution.')],
-        ['icon' => 'ti-layout-dashboard', 'title' => __('Design'), 'description' => __('We craft the UI/UX design and approve it together with you.')],
-        ['icon' => 'ti-code', 'title' => __('Development'), 'description' => __('We build with modern technology and run quality checks.')],
-        ['icon' => 'ti-rocket', 'title' => __('Launch'), 'description' => __('We deploy to the server, go live and keep supporting you.')],
+        ['icon' => 'icon-[tabler--message-chatbot]', 'title' => __('Consultation'), 'description' => __('We listen to your business goals and needs to define the right solution.')],
+        ['icon' => 'icon-[tabler--layout-dashboard]', 'title' => __('Design'), 'description' => __('We craft the UI/UX design and approve it together with you.')],
+        ['icon' => 'icon-[tabler--code]', 'title' => __('Development'), 'description' => __('We build with modern technology and run quality checks.')],
+        ['icon' => 'icon-[tabler--rocket]', 'title' => __('Launch'), 'description' => __('We deploy to the server, go live and keep supporting you.')],
     ];
 
     $faqs = [
@@ -79,11 +79,11 @@
     {{-- Hero --}}
     <section class="relative overflow-hidden bg-base-200 pt-36 pb-24 lg:pt-44 lg:pb-32">
         <div class="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)]"></div>
-        <div class="pointer-events-none absolute -top-32 -right-32 size-[34rem] rounded-full bg-brand-indigo/20 blur-3xl"></div>
-        <div class="pointer-events-none absolute top-1/2 -left-40 size-[28rem] rounded-full bg-brand-blue/20 blur-3xl"></div>
+        <div class="pointer-events-none absolute -top-32 -right-32 size-[34rem] glow-brand-indigo/35"></div>
+        <div class="pointer-events-none absolute top-1/2 -left-40 size-[28rem] glow-brand-blue/35"></div>
 
         <div class="relative mx-auto grid max-w-7xl items-center gap-16 px-4 lg:grid-cols-2 lg:px-8">
-            <div data-reveal>
+            <div>
                 <span class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-base-100 px-4 py-1.5 text-sm font-semibold text-primary shadow-sm">
                     <span class="size-2 animate-pulse rounded-full bg-primary"></span>
                     {{ __('Your digital solutions partner') }}
@@ -101,23 +101,23 @@
                 <div class="mt-10 flex flex-wrap gap-4">
                     <a href="#contact" class="btn btn-lg rounded-2xl border-0 bg-brand-gradient px-7 text-white shadow-xl shadow-primary/30 hover:opacity-90">
                         {{ __('Get a quote') }}
-                        <i class="ti ti-arrow-right text-xl"></i>
+                        <i class="icon-[tabler--arrow-right] text-xl"></i>
                     </a>
                     <a href="#services" class="btn btn-lg btn-outline rounded-2xl border-base-300 bg-base-100 px-7 hover:border-primary hover:bg-primary/5 hover:text-primary">
-                        <i class="ti ti-layout-grid text-xl"></i>
+                        <i class="icon-[tabler--layout-grid] text-xl"></i>
                         {{ __('View services') }}
                     </a>
                 </div>
 
                 <ul class="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-base-content/70">
-                    <li class="flex items-center gap-2"><i class="ti ti-circle-check-filled text-lg text-success"></i> {{ __('Flexible pricing') }}</li>
-                    <li class="flex items-center gap-2"><i class="ti ti-circle-check-filled text-lg text-success"></i> {{ __('Modern UI/UX') }}</li>
-                    <li class="flex items-center gap-2"><i class="ti ti-circle-check-filled text-lg text-success"></i> {{ __('Ongoing support') }}</li>
+                    <li class="flex items-center gap-2"><i class="icon-[tabler--circle-check-filled] text-lg text-success"></i> {{ __('Flexible pricing') }}</li>
+                    <li class="flex items-center gap-2"><i class="icon-[tabler--circle-check-filled] text-lg text-success"></i> {{ __('Modern UI/UX') }}</li>
+                    <li class="flex items-center gap-2"><i class="icon-[tabler--circle-check-filled] text-lg text-success"></i> {{ __('Ongoing support') }}</li>
                 </ul>
             </div>
 
             {{-- Hero visual --}}
-            <div class="relative mx-auto w-full max-w-lg" data-reveal>
+            <div class="relative mx-auto w-full max-w-lg">
                 <x-logo-mark aria-hidden="true" class="animate-spin-slow pointer-events-none absolute -top-16 -right-10 size-48 opacity-10" />
 
                 <div class="relative rounded-3xl border border-base-300 bg-base-100 p-3 shadow-2xl shadow-primary/15">
@@ -126,7 +126,7 @@
                         <span class="size-3 rounded-full bg-warning/70"></span>
                         <span class="size-3 rounded-full bg-success/70"></span>
                         <div class="ms-3 flex flex-1 items-center gap-2 rounded-lg bg-base-200 px-3 py-1.5 text-xs text-base-content/50">
-                            <i class="ti ti-lock text-success"></i> {{ __('your-business.mn') }}
+                            <i class="icon-[tabler--lock] text-success"></i> {{ __('your-business.mn') }}
                         </div>
                     </div>
 
@@ -143,12 +143,12 @@
 
                         <div class="mt-4 grid grid-cols-2 gap-4">
                             <div class="rounded-2xl bg-base-100 p-4">
-                                <i class="ti ti-shopping-cart text-2xl text-secondary"></i>
+                                <i class="icon-[tabler--shopping-cart] text-2xl text-secondary"></i>
                                 <p class="mt-2 text-xs text-base-content/60">{{ __('Orders') }}</p>
                                 <p class="text-lg font-bold">128</p>
                             </div>
                             <div class="rounded-2xl bg-base-100 p-4">
-                                <i class="ti ti-users text-2xl text-primary"></i>
+                                <i class="icon-[tabler--users] text-2xl text-primary"></i>
                                 <p class="mt-2 text-xs text-base-content/60">{{ __('Visitors') }}</p>
                                 <p class="text-lg font-bold">2,340</p>
                             </div>
@@ -158,7 +158,7 @@
 
                 <div class="animate-float absolute -bottom-8 -left-6 flex items-center gap-3 rounded-2xl border border-base-300 bg-base-100 p-4 shadow-xl sm:-left-12">
                     <span class="flex size-11 items-center justify-center rounded-xl bg-success/15 text-success">
-                        <i class="ti ti-qrcode text-2xl"></i>
+                        <i class="icon-[tabler--qrcode] text-2xl"></i>
                     </span>
                     <div>
                         <p class="text-sm font-bold">{{ __('Payment successful') }}</p>
@@ -168,7 +168,7 @@
 
                 <div class="animate-float absolute -top-6 -right-4 flex items-center gap-3 rounded-2xl border border-base-300 bg-base-100 p-4 shadow-xl [animation-delay:-3s] sm:-right-10">
                     <span class="flex size-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                        <i class="ti ti-server-2 text-2xl"></i>
+                        <i class="icon-[tabler--server-2] text-2xl"></i>
                     </span>
                     <div>
                         <p class="text-sm font-bold">{{ __('Server online') }}</p>
@@ -191,10 +191,10 @@
             <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 @foreach ($services as $service)
                     <article class="group relative overflow-hidden rounded-3xl border border-base-300 bg-base-100 p-8 transition duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 {{ $service['class'] }}" data-reveal>
-                        <div class="pointer-events-none absolute -top-20 -right-20 size-48 rounded-full bg-primary/10 opacity-0 blur-2xl transition group-hover:opacity-100"></div>
+                        <div class="pointer-events-none absolute -top-20 -right-20 size-48 glow-primary/20 opacity-0 transition group-hover:opacity-100"></div>
 
                         <span class="flex size-14 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-lg shadow-primary/25">
-                            <i class="ti {{ $service['icon'] }} text-3xl"></i>
+                            <i class="{{ $service['icon'] }} text-3xl"></i>
                         </span>
 
                         <h3 class="mt-6 text-xl font-bold">{{ $service['title'] }}</h3>
@@ -229,7 +229,7 @@
                 <div class="rounded-[2rem] border border-base-300 bg-base-100 p-6 shadow-xl shadow-secondary/5 sm:p-8" data-reveal>
                     <div class="flex items-center gap-4">
                         <span class="flex size-14 items-center justify-center rounded-2xl bg-secondary text-white shadow-lg shadow-secondary/30">
-                            <i class="ti ti-plus text-3xl"></i>
+                            <i class="icon-[tabler--plus] text-3xl"></i>
                         </span>
                         <div>
                             <p class="text-xs font-bold tracking-widest text-secondary uppercase">{{ __('You gain') }}</p>
@@ -241,7 +241,7 @@
                         @foreach ($moreOpportunities as $opportunity)
                             <li class="group flex gap-4 rounded-2xl p-3 transition hover:bg-secondary/5">
                                 <span class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-secondary/10 text-secondary transition group-hover:bg-secondary group-hover:text-white">
-                                    <i class="ti {{ $opportunity['icon'] }} text-2xl"></i>
+                                    <i class="{{ $opportunity['icon'] }} text-2xl"></i>
                                 </span>
                                 <div>
                                     <p class="font-bold">{{ $opportunity['title'] }}</p>
@@ -257,12 +257,12 @@
                     <div class="hidden h-16 w-px bg-gradient-to-b from-transparent to-brand-indigo/40 lg:block"></div>
                     <div class="relative flex size-36 items-center justify-center">
                         <div class="animate-spin-slow absolute inset-0 rounded-full border-2 border-dashed border-brand-indigo/30"></div>
-                        <div class="absolute inset-4 rounded-full bg-brand-gradient opacity-20 blur-xl"></div>
+                        <div class="absolute inset-4 glow-brand-indigo/40"></div>
                         <div class="relative flex size-24 items-center justify-center rounded-full bg-base-100 shadow-2xl shadow-primary/25">
                             <x-logo-mark :alt="__(config('company.name'))" class="size-14" />
                         </div>
-                        <span class="absolute top-1/2 -left-3 hidden size-8 -translate-y-1/2 items-center justify-center rounded-full bg-secondary text-white shadow-lg lg:flex"><i class="ti ti-chevron-left"></i></span>
-                        <span class="absolute top-1/2 -right-3 hidden size-8 -translate-y-1/2 items-center justify-center rounded-full bg-accent text-white shadow-lg lg:flex"><i class="ti ti-chevron-right"></i></span>
+                        <span class="absolute top-1/2 -left-3 hidden size-8 -translate-y-1/2 items-center justify-center rounded-full bg-secondary text-white shadow-lg lg:flex"><i class="icon-[tabler--chevron-left]"></i></span>
+                        <span class="absolute top-1/2 -right-3 hidden size-8 -translate-y-1/2 items-center justify-center rounded-full bg-accent text-white shadow-lg lg:flex"><i class="icon-[tabler--chevron-right]"></i></span>
                     </div>
                     <div class="hidden h-16 w-px bg-gradient-to-t from-transparent to-brand-indigo/40 lg:block"></div>
                 </div>
@@ -271,7 +271,7 @@
                 <div class="rounded-[2rem] border border-base-300 bg-base-100 p-6 shadow-xl shadow-accent/5 sm:p-8" data-reveal>
                     <div class="flex items-center gap-4">
                         <span class="flex size-14 items-center justify-center rounded-2xl bg-accent text-white shadow-lg shadow-accent/30">
-                            <i class="ti ti-minus text-3xl"></i>
+                            <i class="icon-[tabler--minus] text-3xl"></i>
                         </span>
                         <div>
                             <p class="text-xs font-bold tracking-widest text-accent uppercase">{{ __('You save') }}</p>
@@ -283,7 +283,7 @@
                         @foreach ($lowerCosts as $costSaving)
                             <li class="group flex gap-4 rounded-2xl p-3 transition hover:bg-accent/5">
                                 <span class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent transition group-hover:bg-accent group-hover:text-white">
-                                    <i class="ti {{ $costSaving['icon'] }} text-2xl"></i>
+                                    <i class="{{ $costSaving['icon'] }} text-2xl"></i>
                                 </span>
                                 <div>
                                     <p class="font-bold">{{ $costSaving['title'] }}</p>
@@ -300,7 +300,7 @@
                 @foreach ($pillars as $pillar)
                     <div class="flex items-center gap-4 p-6 sm:p-8 {{ $loop->last ? '' : 'border-white/15 max-sm:border-b sm:border-e' }}">
                         <span class="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-white/15">
-                            <i class="ti {{ $pillar['icon'] }} text-2xl"></i>
+                            <i class="{{ $pillar['icon'] }} text-2xl"></i>
                         </span>
                         <div>
                             <p class="text-lg font-bold">{{ $pillar['title'] }}</p>
@@ -328,7 +328,7 @@
                 @foreach ($processSteps as $processStep)
                     <li class="relative text-center" data-reveal>
                         <div class="relative mx-auto flex size-20 items-center justify-center rounded-3xl border border-base-300 bg-base-100 shadow-lg shadow-primary/10">
-                            <i class="ti {{ $processStep['icon'] }} text-gradient text-4xl"></i>
+                            <i class="{{ $processStep['icon'] }} text-gradient text-4xl"></i>
                             <span class="absolute -top-2 -right-2 flex size-7 items-center justify-center rounded-full bg-brand-gradient text-xs font-bold text-white">
                                 {{ $loop->iteration }}
                             </span>
@@ -350,7 +350,7 @@
                 <h2 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">{{ __('Frequently asked questions') }}</h2>
                 <p class="mt-4 text-lg text-base-content/70">{{ __('Didn’t find your answer? Contact us directly.') }}</p>
                 <a href="#contact" class="btn btn-primary btn-soft mt-8 rounded-2xl">
-                    <i class="ti ti-message-circle text-xl"></i>
+                    <i class="icon-[tabler--message-circle] text-xl"></i>
                     {{ __('Ask a question') }}
                 </a>
             </div>
@@ -360,7 +360,7 @@
                     <div class="accordion-item rounded-2xl! border border-base-300 bg-base-100 {{ $loop->first ? 'active' : '' }}" id="faq-{{ $loop->iteration }}">
                         <button type="button" class="accordion-toggle inline-flex w-full items-center justify-between gap-x-4 px-6 py-5 text-start text-base font-semibold" aria-controls="faq-{{ $loop->iteration }}-collapse" aria-expanded="{{ $loop->first ? 'true' : 'false' }}">
                             {{ $faq['question'] }}
-                            <i class="ti ti-chevron-down shrink-0 text-xl text-primary transition-transform duration-300 accordion-item-active:rotate-180"></i>
+                            <i class="icon-[tabler--chevron-down] shrink-0 text-xl text-primary transition-transform duration-300 accordion-item-active:rotate-180"></i>
                         </button>
                         <div id="faq-{{ $loop->iteration }}-collapse" class="accordion-content w-full overflow-hidden transition-[height] duration-300 {{ $loop->first ? '' : 'hidden' }}" aria-labelledby="faq-{{ $loop->iteration }}" role="region">
                             <p class="px-6 pb-5 leading-relaxed text-base-content/70">{{ $faq['answer'] }}</p>
@@ -383,7 +383,7 @@
                 <div class="relative grid gap-10 lg:grid-cols-2 lg:gap-12">
                     <div class="px-2 text-white sm:px-0" data-reveal>
                         <span class="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold tracking-wide uppercase">
-                            <i class="ti ti-rocket text-sm"></i>
+                            <i class="icon-[tabler--rocket] text-sm"></i>
                             {{ __('Contact') }}
                         </span>
                         <h2 class="mt-4 text-2xl leading-snug font-extrabold tracking-tight text-balance sm:text-4xl sm:leading-tight">{{ __('Are you ready to take your business to the next level?') }}</h2>
@@ -393,8 +393,8 @@
 
                         <ul class="mt-8 space-y-3 sm:mt-10 sm:space-y-4">
                             <li>
-                                <a href="mailto:{{ config('company.email') }}" class="flex items-center gap-4 rounded-2xl bg-white/10 p-4 backdrop-blur transition hover:bg-white/20">
-                                    <span class="flex size-11 items-center justify-center rounded-xl bg-white text-primary"><i class="ti ti-mail text-2xl"></i></span>
+                                <a href="mailto:{{ config('company.email') }}" class="flex items-center gap-4 rounded-2xl bg-white/10 p-4 transition hover:bg-white/20">
+                                    <span class="flex size-11 items-center justify-center rounded-xl bg-white text-primary"><i class="icon-[tabler--mail] text-2xl"></i></span>
                                     <span>
                                         <span class="block text-sm text-white/70">{{ __('Email') }}</span>
                                         <span class="font-semibold">{{ config('company.email') }}</span>
@@ -402,8 +402,8 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="tel:{{ str_replace(' ', '', config('company.phone')) }}" class="flex items-center gap-4 rounded-2xl bg-white/10 p-4 backdrop-blur transition hover:bg-white/20">
-                                    <span class="flex size-11 items-center justify-center rounded-xl bg-white text-primary"><i class="ti ti-phone text-2xl"></i></span>
+                                <a href="tel:{{ str_replace(' ', '', config('company.phone')) }}" class="flex items-center gap-4 rounded-2xl bg-white/10 p-4 transition hover:bg-white/20">
+                                    <span class="flex size-11 items-center justify-center rounded-xl bg-white text-primary"><i class="icon-[tabler--phone] text-2xl"></i></span>
                                     <span>
                                         <span class="block text-sm text-white/70">{{ __('Phone') }}</span>
                                         <span class="font-semibold">{{ config('company.phone') }}</span>
@@ -418,7 +418,7 @@
 
                         @if (session('status'))
                             <div class="alert alert-soft alert-success mb-6 flex items-center gap-3 rounded-2xl" role="alert">
-                                <i class="ti ti-circle-check text-2xl"></i>
+                                <i class="icon-[tabler--circle-check] text-2xl"></i>
                                 <span>{{ session('status') }}</span>
                             </div>
                         @endif
@@ -427,45 +427,45 @@
                             <div>
                                 <label class="field-label" for="name">{{ __('Name') }} <span class="text-error">*</span></label>
                                 <div class="relative">
-                                    <i class="ti ti-user pointer-events-none absolute top-1/2 left-4 z-10 -translate-y-1/2 text-xl text-base-content/40"></i>
+                                    <i class="icon-[tabler--user] pointer-events-none absolute top-1/2 left-4 z-10 -translate-y-1/2 text-xl text-base-content/40"></i>
                                     <input type="text" id="name" name="name" value="{{ old('name') }}" placeholder="{{ __('Your name') }}" class="input field-shell ps-12 @error('name') is-invalid @enderror" autocomplete="name" required>
                                 </div>
                                 @error('name')
-                                    <p class="field-error"><i class="ti ti-alert-circle"></i> {{ $message }}</p>
+                                    <p class="field-error"><i class="icon-[tabler--alert-circle]"></i> {{ $message }}</p>
                                 @enderror
                             </div>
 
                             <div>
                                 <label class="field-label" for="phone">{{ __('Phone') }} <span class="text-error">*</span></label>
                                 <div class="relative">
-                                    <i class="ti ti-phone pointer-events-none absolute top-1/2 left-4 z-10 -translate-y-1/2 text-xl text-base-content/40"></i>
+                                    <i class="icon-[tabler--phone] pointer-events-none absolute top-1/2 left-4 z-10 -translate-y-1/2 text-xl text-base-content/40"></i>
                                     <input type="tel" id="phone" name="phone" value="{{ old('phone') }}" placeholder="9911 2233" class="input field-shell ps-12 @error('phone') is-invalid @enderror" autocomplete="tel" required>
                                 </div>
                                 @error('phone')
-                                    <p class="field-error"><i class="ti ti-alert-circle"></i> {{ $message }}</p>
+                                    <p class="field-error"><i class="icon-[tabler--alert-circle]"></i> {{ $message }}</p>
                                 @enderror
                             </div>
 
                             <div class="sm:col-span-2">
                                 <label class="field-label" for="email">{{ __('Email') }}</label>
                                 <div class="relative">
-                                    <i class="ti ti-mail pointer-events-none absolute top-1/2 left-4 z-10 -translate-y-1/2 text-xl text-base-content/40"></i>
+                                    <i class="icon-[tabler--mail] pointer-events-none absolute top-1/2 left-4 z-10 -translate-y-1/2 text-xl text-base-content/40"></i>
                                     <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="name@company.mn" class="input field-shell ps-12 @error('email') is-invalid @enderror" autocomplete="email">
                                 </div>
                                 @error('email')
-                                    <p class="field-error"><i class="ti ti-alert-circle"></i> {{ $message }}</p>
+                                    <p class="field-error"><i class="icon-[tabler--alert-circle]"></i> {{ $message }}</p>
                                 @enderror
                             </div>
 
                             <div class="sm:col-span-2">
                                 @php
                                     $serviceIcons = [
-                                        'Company website' => 'ti-world-www',
-                                        'Online payments' => 'ti-credit-card-pay',
-                                        'E-commerce' => 'ti-shopping-bag',
-                                        'Server setup' => 'ti-server-cog',
-                                        'Server rental' => 'ti-cloud-computing',
-                                        'Other' => 'ti-dots',
+                                        'Company website' => 'icon-[tabler--world-www]',
+                                        'Online payments' => 'icon-[tabler--credit-card-pay]',
+                                        'E-commerce' => 'icon-[tabler--shopping-bag]',
+                                        'Server setup' => 'icon-[tabler--server-cog]',
+                                        'Server rental' => 'icon-[tabler--cloud-computing]',
+                                        'Other' => 'icon-[tabler--dots]',
                                     ];
 
                                     $serviceSelectConfig = [
@@ -474,23 +474,23 @@
                                         'toggleClasses' => 'advance-select-toggle field-shell flex items-center ps-12 pe-11 text-start'.($errors->has('service') ? ' is-invalid' : ''),
                                         'dropdownClasses' => 'advance-select-menu mt-2 max-h-80 space-y-1 overflow-y-auto rounded-2xl border border-base-300 bg-base-100 p-2 shadow-2xl shadow-primary/10',
                                         'optionClasses' => 'advance-select-option group flex items-center rounded-xl px-3 py-2.5 transition hover:bg-primary/5 selected:bg-primary/10 selected:font-semibold selected:text-primary',
-                                        'optionTemplate' => '<div class="flex w-full items-center gap-3"><span class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-base-200 text-lg text-base-content/60 transition group-hover:text-primary" data-icon></span><span class="grow" data-title></span><i class="ti ti-check hidden shrink-0 text-lg text-primary selected:block"></i></div>',
-                                        'extraMarkup' => '<i class="ti ti-chevron-down pointer-events-none absolute end-4 top-1/2 -translate-y-1/2 text-lg text-base-content/50"></i>',
+                                        'optionTemplate' => '<div class="flex w-full items-center gap-3"><span class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-base-200 text-lg text-base-content/60 transition group-hover:text-primary" data-icon></span><span class="grow" data-title></span><i class="icon-[tabler--check] hidden shrink-0 text-lg text-primary selected:block"></i></div>',
+                                        'extraMarkup' => '<i class="icon-[tabler--chevron-down] pointer-events-none absolute end-4 top-1/2 -translate-y-1/2 text-lg text-base-content/50"></i>',
                                     ];
                                 @endphp
 
                                 <label class="field-label" for="service">{{ __('Service') }} <span class="text-error">*</span></label>
                                 <div class="relative">
-                                    <i class="ti ti-apps pointer-events-none absolute top-1/2 left-4 z-20 -translate-y-1/2 text-xl text-base-content/40"></i>
+                                    <i class="icon-[tabler--apps] pointer-events-none absolute top-1/2 left-4 z-20 -translate-y-1/2 text-xl text-base-content/40"></i>
                                     <select id="service" name="service" class="hidden" data-select="{{ json_encode($serviceSelectConfig) }}">
                                         <option value="">{{ __('Select a service') }}</option>
                                         @foreach (\App\Http\Requests\StoreContactRequest::SERVICES as $serviceOption)
-                                            <option value="{{ $serviceOption }}" data-select-option="{{ json_encode(['icon' => '<i class="ti '.$serviceIcons[$serviceOption].'"></i>']) }}" @selected(old('service') === $serviceOption)>{{ __($serviceOption) }}</option>
+                                            <option value="{{ $serviceOption }}" data-select-option="{{ json_encode(['icon' => '<i class="'.$serviceIcons[$serviceOption].'"></i>']) }}" @selected(old('service') === $serviceOption)>{{ __($serviceOption) }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 @error('service')
-                                    <p class="field-error"><i class="ti ti-alert-circle"></i> {{ $message }}</p>
+                                    <p class="field-error"><i class="icon-[tabler--alert-circle]"></i> {{ $message }}</p>
                                 @enderror
                             </div>
 
@@ -498,18 +498,18 @@
                                 <label class="field-label" for="message">{{ __('Message') }} <span class="text-error">*</span></label>
                                 <textarea id="message" name="message" rows="4" placeholder="{{ __('Briefly describe your project') }}" class="textarea field-shell h-auto! min-h-32 resize-y px-4 py-3.5 @error('message') is-invalid @enderror" required>{{ old('message') }}</textarea>
                                 @error('message')
-                                    <p class="field-error"><i class="ti ti-alert-circle"></i> {{ $message }}</p>
+                                    <p class="field-error"><i class="icon-[tabler--alert-circle]"></i> {{ $message }}</p>
                                 @enderror
                             </div>
                         </div>
 
                         <button type="submit" class="btn btn-block mt-7 h-14 rounded-2xl border-0 bg-brand-gradient text-base text-white shadow-lg shadow-primary/30 hover:opacity-90">
                             {{ __('Send request') }}
-                            <i class="ti ti-send text-xl"></i>
+                            <i class="icon-[tabler--send] text-xl"></i>
                         </button>
 
                         <p class="mt-4 flex items-center justify-center gap-2 text-center text-sm text-base-content/55">
-                            <i class="ti ti-clock text-base"></i>
+                            <i class="icon-[tabler--clock] text-base"></i>
                             {{ __('We usually reply within one business day.') }}
                         </p>
                     </form>

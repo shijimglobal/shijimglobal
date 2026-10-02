@@ -5,12 +5,12 @@
             <div
                 class="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_left,black_10%,transparent_60%)]">
             </div>
-            <div class="pointer-events-none absolute -right-24 -bottom-24 size-80 rounded-full bg-[#1877f2]/15 blur-3xl">
+            <div class="pointer-events-none absolute -right-24 -bottom-24 size-80 glow-[#1877f2]/30">
             </div>
 
             <div class="relative" data-reveal>
                 <span class="inline-flex items-center gap-2 text-sm font-bold tracking-widest text-[#1877f2] uppercase">
-                    <i class="ti ti-brand-facebook text-lg"></i>
+                    <i class="icon-[tabler--brand-facebook] text-lg"></i>
                     Facebook
                 </span>
                 <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-balance sm:text-4xl">
@@ -20,11 +20,11 @@
                 </p>
 
                 <ul class="mt-8 space-y-3">
-                    @foreach ([['ti-news', __('News and announcements')], ['ti-discount-2', __('Special offers')], ['ti-message-circle', __('Quick replies on Messenger')]] as [$benefitIcon, $benefitLabel])
+                    @foreach ([['icon-[tabler--news]', __('News and announcements')], ['icon-[tabler--discount-2]', __('Special offers')], ['icon-[tabler--message-circle]', __('Quick replies on Messenger')]] as [$benefitIcon, $benefitLabel])
                         <li class="flex items-center gap-3 font-medium text-base-content/80">
                             <span
                                 class="flex size-9 items-center justify-center rounded-xl bg-[#1877f2]/10 text-[#1877f2]"><i
-                                    class="ti {{ $benefitIcon }} text-lg"></i></span>
+                                    class="{{ $benefitIcon }} text-lg"></i></span>
                             {{ $benefitLabel }}
                         </li>
                     @endforeach
@@ -47,7 +47,7 @@
                     <a href="{{ $profile['link'] }}" target="_blank" rel="noopener"
                         class="absolute top-3 right-3 flex size-9 items-center justify-center rounded-full bg-[#1877f2] text-white shadow-lg ring-2 ring-white/80 transition hover:scale-110"
                         aria-label="Facebook">
-                        <i class="ti ti-brand-facebook text-xl"></i>
+                        <i class="icon-[tabler--brand-facebook] text-xl"></i>
                     </a>
                 </div>
 
@@ -80,7 +80,7 @@
                         <div class="flex items-center gap-3 px-4 py-3.5">
                             <span
                                 class="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#1877f2]/10 text-[#1877f2]"><i
-                                    class="ti ti-users text-xl"></i></span>
+                                    class="icon-[tabler--users] text-xl"></i></span>
                             <div class="min-w-0">
                                 <dd class="text-xl leading-none font-extrabold"
                                     title="{{ number_format($profile['followers_count']) }}">
@@ -92,7 +92,7 @@
                         <div class="flex items-center gap-3 px-4 py-3.5">
                             <span
                                 class="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#1877f2]/10 text-[#1877f2]"><i
-                                    class="ti ti-thumb-up text-xl"></i></span>
+                                    class="icon-[tabler--thumb-up] text-xl"></i></span>
                             <div class="min-w-0">
                                 <dd class="text-xl leading-none font-extrabold"
                                     title="{{ number_format($profile['fan_count']) }}">
@@ -111,13 +111,13 @@
                     <div class="mt-6 grid gap-2 {{ config('company.messenger') ? 'grid-cols-2' : '' }}">
                         <a href="{{ $profile['link'] }}" target="_blank" rel="noopener"
                             class="btn h-12 rounded-2xl border-0 bg-[#1877f2] text-white shadow-lg shadow-[#1877f2]/30 hover:bg-[#166fe0]">
-                            <i class="ti ti-user-plus text-lg"></i>
+                            <i class="icon-[tabler--user-plus] text-lg"></i>
                             {{ __('Follow') }}
                         </a>
                         @if (config('company.messenger'))
                             <a href="{{ config('company.messenger') }}" data-desktop-href="{{ \App\Services\FacebookPageService::desktopMessengerUrl() }}" data-app-href="{{ \App\Services\FacebookPageService::messengerAppUrl() }}" target="_blank" rel="noopener"
                                 class="btn btn-outline h-12 rounded-2xl border-base-300 hover:border-[#1877f2] hover:bg-[#1877f2]/5 hover:text-[#1877f2]">
-                                <i class="ti ti-brand-messenger text-lg"></i>
+                                <i class="icon-[tabler--brand-messenger] text-lg"></i>
                                 {{ __('Message') }}
                             </a>
                         @endif

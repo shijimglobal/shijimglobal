@@ -6,9 +6,9 @@
 
         <div class="flex items-center gap-1">
             @if ($paginator->onFirstPage())
-                <span class="flex size-10 items-center justify-center rounded-xl text-base-content/30"><i class="ti ti-chevron-left text-lg"></i></span>
+                <span class="flex size-10 items-center justify-center rounded-xl text-base-content/30"><i class="icon-[tabler--chevron-left] text-lg"></i></span>
             @else
-                <a href="{{ $paginator->previousPageUrl() }}" rel="prev" class="flex size-10 items-center justify-center rounded-xl text-base-content/70 transition hover:bg-base-200 hover:text-primary" aria-label="{{ __('Previous') }}"><i class="ti ti-chevron-left text-lg"></i></a>
+                <a href="{{ $paginator->previousPageUrl() }}" rel="prev" class="flex size-10 items-center justify-center rounded-xl text-base-content/70 transition hover:bg-base-200 hover:text-primary" aria-label="{{ __('Previous') }}"><i class="icon-[tabler--chevron-left] text-lg"></i></a>
             @endif
 
             @foreach ($elements as $element)
@@ -28,9 +28,9 @@
             @endforeach
 
             @if ($paginator->hasMorePages())
-                <a href="{{ $paginator->nextPageUrl() }}" rel="next" class="flex size-10 items-center justify-center rounded-xl text-base-content/70 transition hover:bg-base-200 hover:text-primary" aria-label="{{ __('Next') }}"><i class="ti ti-chevron-right text-lg"></i></a>
+                <a href="{{ $paginator->nextPageUrl() }}" rel="next" class="flex size-10 items-center justify-center rounded-xl text-base-content/70 transition hover:bg-base-200 hover:text-primary" aria-label="{{ __('Next') }}"><i class="icon-[tabler--chevron-right] text-lg"></i></a>
             @else
-                <span class="flex size-10 items-center justify-center rounded-xl text-base-content/30"><i class="ti ti-chevron-right text-lg"></i></span>
+                <span class="flex size-10 items-center justify-center rounded-xl text-base-content/30"><i class="icon-[tabler--chevron-right] text-lg"></i></span>
             @endif
         </div>
     </nav>

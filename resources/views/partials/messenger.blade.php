@@ -5,7 +5,7 @@
         </span>
         <span class="relative flex size-14 items-center justify-center rounded-full bg-gradient-to-br from-[#00b2ff] via-[#7a5cff] to-[#ff5a8a] text-white shadow-xl shadow-primary/30 transition duration-300 group-hover:scale-110 group-focus-visible:ring-4 group-focus-visible:ring-primary/40">
             <span class="absolute inset-0 animate-ping rounded-full bg-[#7a5cff]/40 [animation-duration:2.5s]"></span>
-            <i class="ti ti-brand-messenger relative text-3xl"></i>
+            <i class="icon-[tabler--brand-messenger] relative text-3xl"></i>
         </span>
     </a>
 @endif
