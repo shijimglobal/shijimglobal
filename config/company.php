@@ -16,13 +16,13 @@ return [
 
     'slogan' => 'More opportunities, lower costs',
 
-    'email' => env('COMPANY_EMAIL', 'info@shijimglobal.mn'),
+    'email' => 'info@shijimglobal.mn',
 
-    'phone' => env('COMPANY_PHONE', '+976 9920 1210 '),
+    'phone' => '+976 9920 1210 ',
 
-    'address' => env('COMPANY_ADDRESS', 'Ulaanbaatar, Mongolia'),
+    'address' => 'Ulaanbaatar, Mongolia',
 
-    'messenger' => env('COMPANY_MESSENGER', 'https://m.me/shijimglobal'),
+    'messenger' => 'https://m.me/shijimglobal',
 
     /*
     |--------------------------------------------------------------------------
