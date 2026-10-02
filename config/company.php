@@ -22,7 +22,7 @@ return [
 
     'address' => 'Ulaanbaatar, Mongolia',
 
-    'messenger' => 'https://m.me/shijimglobal/',
+    'messenger' => 'https://m.me/shijimglobal',
 
     /*
     |--------------------------------------------------------------------------

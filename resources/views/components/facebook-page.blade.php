@@ -115,7 +115,7 @@
                             {{ __('Follow') }}
                         </a>
                         @if (config('company.messenger'))
-                            <a href="{{ config('company.messenger') }}" target="_blank" rel="noopener"
+                            <a href="{{ config('company.messenger') }}" data-desktop-href="{{ \App\Services\FacebookPageService::desktopMessengerUrl() }}" target="_blank" rel="noopener"
                                 class="btn btn-outline h-12 rounded-2xl border-base-300 hover:border-[#1877f2] hover:bg-[#1877f2]/5 hover:text-[#1877f2]">
                                 <i class="ti ti-brand-messenger text-lg"></i>
                                 {{ __('Message') }}

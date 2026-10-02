@@ -89,6 +89,20 @@ test('section is hidden when the api fails and nothing was cached', function () 
         ->assertDontSee('id="facebook"', false);
 });
 
+test('messenger buttons carry a facebook.com inbox link for desktop', function () {
+    fakeFacebookPage();
+
+    $this->get(route('home'))
+        ->assertOk()
+        ->assertSee('data-desktop-href="https://www.facebook.com/messages/t/123456"', false);
+});
+
+test('desktop messenger link is empty without a page id', function () {
+    config(['services.facebook.page_id' => null]);
+
+    expect(FacebookPageService::desktopMessengerUrl())->toBeNull();
+});
+
 test('follower counts are abbreviated', function (int $count, string $expected) {
     expect(FacebookPageService::abbreviate($count))->toBe($expected);
 })->with([

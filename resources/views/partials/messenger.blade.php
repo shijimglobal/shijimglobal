@@ -1,5 +1,5 @@
 @if (config('company.messenger'))
-    <a href="{{ config('company.messenger') }}" target="_blank" rel="noopener" class="group fixed end-4 bottom-10 z-40 flex items-center gap-3 rounded-full outline-none sm:end-6 sm:bottom-14" aria-label="{{ __('Chat on Messenger') }}">
+    <a href="{{ config('company.messenger') }}" data-desktop-href="{{ \App\Services\FacebookPageService::desktopMessengerUrl() }}" target="_blank" rel="noopener" class="group fixed end-4 bottom-10 z-40 flex items-center gap-3 rounded-full outline-none sm:end-6 sm:bottom-14" aria-label="{{ __('Chat on Messenger') }}">
         <span class="hidden rounded-2xl border border-base-300 bg-base-100 px-4 py-2.5 text-sm font-semibold text-base-content opacity-0 shadow-xl transition duration-300 group-hover:translate-x-0 group-hover:opacity-100 sm:block sm:translate-x-2">
             {{ __('Chat with us') }}
         </span>

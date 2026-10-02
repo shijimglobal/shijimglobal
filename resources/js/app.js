@@ -105,6 +105,16 @@ window.addEventListener('resize', () => {
 document.fonts?.ready.then(moveNavigationIndicator);
 detectActiveSection();
 
+// Desktop browsers open m.me links on messenger.com, which needs a separate login;
+// send them to the page conversation on facebook.com where they are usually signed in.
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('a[data-desktop-href]').forEach((link) => {
+        if (link.dataset.desktopHref) {
+            link.href = link.dataset.desktopHref;
+        }
+    });
+}
+
 document.querySelectorAll('[data-theme-toggle]').forEach((toggle) => {
     toggle.addEventListener('click', () => {
         const isDark = document.documentElement.dataset.theme === 'shijim-dark';

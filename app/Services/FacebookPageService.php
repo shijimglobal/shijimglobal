@@ -71,6 +71,19 @@ class FacebookPageService
     }
 
     /**
+     * Get the facebook.com inbox link for desktop visitors.
+     *
+     * The m.me short link sends desktop browsers to messenger.com, which has its own
+     * login, so desktop visitors are sent to the page conversation on facebook.com instead.
+     */
+    public static function desktopMessengerUrl(): ?string
+    {
+        $pageId = config('services.facebook.page_id');
+
+        return filled($pageId) ? 'https://www.facebook.com/messages/t/'.$pageId : null;
+    }
+
+    /**
      * Forget the cached profile so the next request fetches fresh data.
      */
     public function flush(): void
