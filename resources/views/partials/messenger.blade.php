@@ -8,4 +8,18 @@
             <i class="ti ti-brand-messenger relative text-3xl"></i>
         </span>
     </a>
+
+    {{-- Shown on phones when the Messenger app did not open --}}
+    <div data-messenger-fallback class="pointer-events-none fixed inset-x-4 bottom-28 z-50 translate-y-4 opacity-0 transition duration-300 sm:hidden" role="status">
+        <div class="pointer-events-auto flex items-center gap-3 rounded-2xl border border-base-300 bg-base-100 p-3 shadow-2xl">
+            <span class="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#1877f2]/10 text-[#1877f2]">
+                <i class="ti ti-brand-messenger text-xl"></i>
+            </span>
+            <p class="min-w-0 flex-1 text-sm font-semibold">{{ __('Messenger did not open?') }}</p>
+            <a href="{{ config('company.messenger') }}" target="_blank" rel="noopener" class="btn btn-sm h-9 rounded-xl border-0 bg-[#1877f2] text-white">{{ __('Open in browser') }}</a>
+            <button type="button" data-messenger-fallback-close class="flex size-8 items-center justify-center rounded-lg text-base-content/50" aria-label="{{ __('Close') }}">
+                <i class="ti ti-x"></i>
+            </button>
+        </div>
+    </div>
 @endif

@@ -114,8 +114,28 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
         }
     });
 } else {
-    // Phones: open the Messenger app directly, falling back to the m.me page
-    // when the app is not installed (the page stays visible after the attempt).
+    // Phones: open the Messenger app directly. The site itself never navigates away;
+    // if the app does not open, a small prompt offers the m.me page in a new tab.
+    const messengerFallback = document.querySelector('[data-messenger-fallback]');
+    let messengerFallbackTimer = null;
+
+    const setMessengerFallbackVisible = (isVisible) => {
+        messengerFallback?.classList.toggle('opacity-0', !isVisible);
+        messengerFallback?.classList.toggle('translate-y-4', !isVisible);
+    };
+
+    const cancelMessengerFallback = () => clearTimeout(messengerFallbackTimer);
+
+    ['blur', 'pagehide'].forEach((eventName) => window.addEventListener(eventName, cancelMessengerFallback));
+    document.addEventListener('visibilitychange', () => {
+        cancelMessengerFallback();
+
+        if (document.visibilityState === 'visible') {
+            setMessengerFallbackVisible(false);
+        }
+    });
+    document.querySelector('[data-messenger-fallback-close]')?.addEventListener('click', () => setMessengerFallbackVisible(false));
+
     document.querySelectorAll('a[data-app-href]').forEach((link) => {
         if (!link.dataset.appHref) {
             return;
@@ -123,14 +143,15 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
 
         link.addEventListener('click', (event) => {
             event.preventDefault();
+            cancelMessengerFallback();
 
-            const fallbackTimer = setTimeout(() => {
-                if (document.visibilityState === 'visible') {
-                    window.location.href = link.href;
+            messengerFallbackTimer = setTimeout(() => {
+                if (document.visibilityState === 'visible' && document.hasFocus()) {
+                    setMessengerFallbackVisible(true);
+                    setTimeout(() => setMessengerFallbackVisible(false), 8000);
                 }
-            }, 1500);
+            }, 2500);
 
-            document.addEventListener('visibilitychange', () => clearTimeout(fallbackTimer), { once: true });
             window.location.href = link.dataset.appHref;
         });
     });
