@@ -5,7 +5,11 @@
 <title>{{ $title }}</title>
 <meta name="theme-color" content="#4b52ff">
 
-<link rel="icon" href="{{ asset('assets/ico/favicon.ico') }}" sizes="any">
+<link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
+{{-- Google Search shows favicons whose size is a multiple of 48px. --}}
+<link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/ico/favicon-192x192.png') }}">
+<link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/ico/favicon-96x96.png') }}">
+<link rel="icon" type="image/png" sizes="48x48" href="{{ asset('assets/ico/favicon-48x48.png') }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/ico/favicon-32x32.png') }}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/ico/favicon-16x16.png') }}">
 <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/ico/apple-touch-icon-padded.png') }}">

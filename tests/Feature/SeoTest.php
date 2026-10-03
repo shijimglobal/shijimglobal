@@ -49,6 +49,19 @@ test('google site verification meta tag is rendered when configured', function (
         ->assertSee('<meta name="google-site-verification" content="verification-token">', false);
 });
 
+test('favicons meet google search requirements', function () {
+    expect(filesize(public_path('favicon.ico')))->toBeGreaterThan(0);
+
+    foreach ([48, 96, 192] as $size) {
+        expect(getimagesize(public_path("assets/ico/favicon-{$size}x{$size}.png")))->toMatchArray([0 => $size, 1 => $size]);
+    }
+
+    $this->get(route('home'))
+        ->assertOk()
+        ->assertSee('<link rel="icon" type="image/png" sizes="48x48" href="'.asset('assets/ico/favicon-48x48.png').'">', false)
+        ->assertSee('<link rel="icon" href="'.asset('favicon.ico').'" sizes="any">', false);
+});
+
 test('sitemap lists the home page', function () {
     $this->get('/sitemap.xml')
         ->assertOk()
