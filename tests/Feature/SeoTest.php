@@ -62,6 +62,34 @@ test('favicons meet google search requirements', function () {
         ->assertSee('<link rel="icon" href="'.asset('favicon.ico').'" sizes="any">', false);
 });
 
+test('www requests are permanently redirected to the bare domain', function () {
+    config(['app.url' => 'https://shijimglobal.com']);
+
+    $this->get('http://www.shijimglobal.com/privacy-policy?ref=google')
+        ->assertStatus(301)
+        ->assertRedirect('https://shijimglobal.com/privacy-policy?ref=google');
+});
+
+test('bare domain requests are not redirected', function () {
+    config(['app.url' => 'https://shijimglobal.com']);
+
+    $this->get('https://shijimglobal.com/')->assertOk();
+});
+
+test('www of a foreign domain is not redirected', function () {
+    config(['app.url' => 'https://shijimglobal.com']);
+
+    $this->get('https://www.example.com/')->assertOk();
+});
+
+test('form submissions on www are not redirected so their data is kept', function () {
+    config(['app.url' => 'https://shijimglobal.com']);
+
+    $this->post('https://www.shijimglobal.com/contact', [])
+        ->assertRedirect()
+        ->assertSessionHasErrors('name');
+});
+
 test('sitemap lists the home page', function () {
     $this->get('/sitemap.xml')
         ->assertOk()
