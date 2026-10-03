@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="shijim">
 <head>
-    @include('partials.head', ['title' => $title ?? __(config('company.name')).' — '.__('Website development, online payments and server rental')])
+    @include('partials.head', ['title' => $title ?? __('Website development service | Websites, online stores, server rental').' | '.__('Shijim Global')])
     @include('partials.social-meta')
     @include('partials.structured-data')
 </head>

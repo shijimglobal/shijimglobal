@@ -84,14 +84,17 @@
 
         <div class="relative mx-auto grid max-w-7xl items-center gap-16 px-4 lg:grid-cols-2 lg:px-8">
             <div>
-                <span class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-base-100 px-4 py-1.5 text-sm font-semibold text-primary shadow-sm">
-                    <span class="size-2 animate-pulse rounded-full bg-primary"></span>
-                    {{ __('Your digital solutions partner') }}
-                </span>
+                {{-- One H1 holds both the search keywords (badge) and the slogan. --}}
+                <h1>
+                    <span class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-base-100 px-4 py-1.5 text-sm font-semibold text-primary shadow-sm">
+                        <span class="size-2 animate-pulse rounded-full bg-primary"></span>
+                        {{ __('Website development service') }}
+                    </span>
 
-                <h1 class="mt-6 text-4xl leading-tight font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                    <span class="text-gradient">{{ __('More opportunities,') }}</span><br>
-                    {{ __('lower costs') }}
+                    <span class="mt-6 block text-4xl leading-tight font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                        <span class="text-gradient">{{ __('More opportunities,') }}</span><br>
+                        {{ __('lower costs') }}
+                    </span>
                 </h1>
 
                 <p class="mt-6 max-w-xl text-lg leading-relaxed text-base-content/70">

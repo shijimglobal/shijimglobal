@@ -1,10 +1,24 @@
 <?php
 
-test('home page title contains the main search keywords', function () {
-    $this->get(route('home'))
-        ->assertOk()
-        ->assertSee('<title>Шижим Глобал ХХК — Веб сайт хийх, онлайн төлбөр, сервер түрээс</title>', false)
-        ->assertSee('<meta name="description" content="Танилцуулга веб сайт, онлайн дэлгүүр хийх', false);
+test('home page title and description cover the common spellings people search with', function () {
+    $html = $this->get(route('home'))->assertOk()->getContent();
+
+    preg_match('#<title>(.*?)</title>#s', $html, $title);
+    preg_match('#<meta name="description" content="([^"]*)">#', $html, $description);
+
+    expect($title[1])->toBe('Вэб сайт хийх үйлчилгээ | Веб сайт, онлайн дэлгүүр, сервер түрээс | Шижим Глобал')
+        ->and($description[1])->toContain('Вэб сайт хийх үйлчилгээ', 'Веб сайт', 'Website hiih', config('company.phone'))
+        ->and(mb_strlen(html_entity_decode($description[1])))->toBeLessThanOrEqual(160);
+});
+
+test('home page has a single h1 containing the main keyword', function () {
+    $html = $this->get(route('home'))->assertOk()->getContent();
+
+    expect(substr_count($html, '<h1'))->toBe(1);
+
+    preg_match('#<h1[^>]*>(.*?)</h1>#s', $html, $heading);
+
+    expect(strip_tags($heading[1]))->toContain('Вэб сайт хийх үйлчилгээ');
 });
 
 test('home page includes organization structured data', function () {
