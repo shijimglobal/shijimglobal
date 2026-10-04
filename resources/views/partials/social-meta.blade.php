@@ -1,7 +1,8 @@
 {{-- Search engine and link preview (Facebook, Messenger, Telegram, X) metadata. --}}
 @php
-    $shareTitle = __(config('company.name')).' — '.__(config('company.slogan'));
-    $shareDescription = __('Website development company. Websites and online stores, QR and card payment integration, server rental. Get a quote: :phone', ['phone' => config('company.phone')]);
+    // Inner pages pass their own $title / $metaDescription; the home page uses the defaults.
+    $shareTitle = isset($metaDescription, $title) ? $title : __(config('company.name')).' — '.__(config('company.slogan'));
+    $shareDescription = $metaDescription ?? __('Website development company. Websites and online stores, QR and card payment integration, server rental. Get a quote: :phone', ['phone' => config('company.phone')]);
     $shareImage = asset('assets/og/og-image.png').'?v='.@filemtime(public_path('assets/og/og-image.png'));
     $currentLocale = app()->getLocale();
     $openGraphLocales = ['mn' => 'mn_MN', 'en' => 'en_US'];
@@ -16,7 +17,7 @@
 @if (filled(config('services.facebook.app_id')))
     <meta property="fb:app_id" content="{{ config('services.facebook.app_id') }}">
 @endif
-<meta property="og:type" content="website">
+<meta property="og:type" content="{{ $metaType ?? 'website' }}">
 <meta property="og:site_name" content="{{ __(config('company.name')) }}">
 <meta property="og:title" content="{{ $shareTitle }}">
 <meta property="og:description" content="{{ $shareDescription }}">

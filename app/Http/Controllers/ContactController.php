@@ -21,7 +21,7 @@ class ContactController extends Controller
         Notification::send(User::all(), new NewContactMessageNotification($contactMessage));
 
         return redirect()
-            ->to(route('home').'#contact')
+            ->to(StoreContactRequest::returnUrl())
             ->with('status', __('Thank you! We received your request and will contact you shortly.'));
     }
 }

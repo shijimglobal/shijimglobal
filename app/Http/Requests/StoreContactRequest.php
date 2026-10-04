@@ -67,6 +67,17 @@ class StoreContactRequest extends FormRequest
      */
     protected function getRedirectUrl(): string
     {
-        return route('home').'#contact';
+        return self::returnUrl();
+    }
+
+    /**
+     * The page the form was sent from (contact section), limited to this site to avoid open redirects.
+     */
+    public static function returnUrl(): string
+    {
+        $previousUrl = strtok(url()->previous(), '#');
+        $isOwnPage = parse_url($previousUrl, PHP_URL_HOST) === request()->getHost();
+
+        return ($isOwnPage ? $previousUrl : route('home')).'#contact';
     }
 }

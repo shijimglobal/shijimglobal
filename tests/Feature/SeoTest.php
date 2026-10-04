@@ -33,7 +33,7 @@ test('home page includes organization structured data', function () {
     $organization = collect($structuredData['@graph'])->firstWhere('@type', 'Organization');
     $service = collect($structuredData['@graph'])->firstWhere('@type', 'ProfessionalService');
 
-    expect($types)->toBe(['Organization', 'WebSite', 'ProfessionalService'])
+    expect($types)->toBe(['Organization', 'WebSite', 'ProfessionalService', 'FAQPage'])
         ->and($organization['name'])->toBe('Шижим Глобал ХХК')
         ->and($organization['email'])->toBe(config('company.email'))
         ->and($organization['sameAs'])->toBe([config('company.facebook')])

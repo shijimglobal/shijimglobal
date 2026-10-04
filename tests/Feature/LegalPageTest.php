@@ -20,10 +20,9 @@ test('legal pages are shown in english when english is selected', function () {
         ->assertSee('Information we collect');
 });
 
-test('section links on legal pages point back to the home page', function () {
+test('quote button on legal pages leads to the home contact form', function () {
     $this->get(route('legal.terms'))
         ->assertOk()
-        ->assertSee('href="'.route('home').'#services"', false)
         ->assertSee('href="'.route('home').'#contact"', false);
 });
 

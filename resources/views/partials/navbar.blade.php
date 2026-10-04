@@ -1,13 +1,6 @@
 @php
-    // Section links point back to the home page when shown on other pages (e.g. the legal pages).
-    $homeAnchorPrefix = request()->routeIs('home') ? '' : route('home');
-
-    $navigationLinks = [
-        ['label' => __('Services'), 'href' => $homeAnchorPrefix.'#services'],
-        ['label' => __('Advantages'), 'href' => $homeAnchorPrefix.'#why-us'],
-        ['label' => __('Process'), 'href' => $homeAnchorPrefix.'#process'],
-        ['label' => __('FAQ'), 'href' => $homeAnchorPrefix.'#faq'],
-    ];
+    // Legal pages have no contact form of their own, so the call to action leads back home.
+    $homeAnchorPrefix = request()->routeIs('legal.*') ? route('home') : '';
 
     $currentLocale = app()->getLocale();
 @endphp
@@ -19,18 +12,6 @@
             <a href="{{ route('home') }}" class="flex shrink-0 items-center" aria-label="{{ __(config('company.name')) }}">
                 <x-logo :alt="__(config('company.name'))" class="h-11 sm:h-12" />
             </a>
-
-            {{-- Desktop links --}}
-            <ul data-nav-track class="relative hidden items-center gap-1 rounded-2xl bg-base-200/70 p-1.5 lg:flex">
-                <span data-nav-indicator class="pointer-events-none absolute top-1.5 bottom-1.5 left-0 w-0 rounded-xl bg-base-100 opacity-0 shadow-sm transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]" aria-hidden="true"></span>
-                @foreach ($navigationLinks as $navigationLink)
-                    <li class="relative z-10">
-                        <a href="{{ $navigationLink['href'] }}" data-nav-link class="block rounded-xl px-4 py-2 text-sm font-semibold text-base-content/70 transition-colors duration-300 hover:text-primary aria-[current=true]:text-primary">
-                            {{ $navigationLink['label'] }}
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
 
             {{-- Actions --}}
             <div class="flex items-center gap-2">
@@ -69,18 +50,10 @@
             </div>
         </div>
 
-        {{-- Mobile links --}}
+        {{-- Mobile menu: language and quote button --}}
         <div id="mobile-navigation" class="collapse hidden w-full overflow-hidden transition-[height] duration-300 lg:hidden">
             <ul class="space-y-1 border-t border-base-300/70 p-3">
-                @foreach ($navigationLinks as $navigationLink)
-                    <li>
-                        <a href="{{ $navigationLink['href'] }}" data-nav-link class="flex items-center justify-between rounded-xl px-4 py-3 font-semibold text-base-content/80 transition-colors duration-300 hover:bg-primary/10 hover:text-primary aria-[current=true]:bg-primary/10 aria-[current=true]:text-primary">
-                            {{ $navigationLink['label'] }}
-                            <i class="icon-[tabler--chevron-right] text-base-content/40"></i>
-                        </a>
-                    </li>
-                @endforeach
-                <li class="mt-2 border-t border-base-300/70 pt-3">
+                <li>
                     <div class="flex items-center justify-between gap-3 px-4 py-1">
                         <span class="flex items-center gap-2 text-sm font-semibold text-base-content/70">
                             <i class="icon-[tabler--world] text-lg"></i>

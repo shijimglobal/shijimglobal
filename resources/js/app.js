@@ -35,87 +35,36 @@ const updateNavbar = () => {
 window.addEventListener('scroll', updateNavbar, { passive: true });
 updateNavbar();
 
-const navigationLinks = [...document.querySelectorAll('[data-nav-link]')];
-// Only in-page links ("#services") are tracked; on other pages the links point back to the home page.
-const trackedSections = [...new Set(navigationLinks.map((link) => link.getAttribute('href')))]
-    .filter((href) => href.startsWith('#'))
-    .map((hash) => document.querySelector(hash))
-    .filter(Boolean);
-
+// Desktop menu: a pill sits under the current page's link (marked aria-current by the server)
+// and glides to whichever link is hovered, returning when the pointer leaves the menu.
 const navigationIndicator = document.querySelector('[data-nav-indicator]');
 const navigationTrack = document.querySelector('[data-nav-track]');
-let activeSectionId = null;
 
-const moveNavigationIndicator = () => {
+const moveNavigationIndicator = (targetLink = navigationTrack?.querySelector('[data-nav-link][aria-current="true"]')) => {
     if (!navigationIndicator || !navigationTrack) {
         return;
     }
 
-    const activeLink = navigationTrack.querySelector(`[data-nav-link][href="#${activeSectionId}"]`);
-
-    if (!activeLink) {
+    if (!targetLink) {
         navigationIndicator.style.opacity = '0';
 
         return;
     }
 
     navigationIndicator.style.opacity = '1';
-    navigationIndicator.style.width = `${activeLink.offsetWidth}px`;
-    navigationIndicator.style.transform = `translateX(${activeLink.parentElement.offsetLeft}px)`;
+    navigationIndicator.style.width = `${targetLink.offsetWidth}px`;
+    navigationIndicator.style.transform = `translateX(${targetLink.parentElement.offsetLeft}px)`;
 };
 
-const setActiveSection = (sectionId) => {
-    if (sectionId === activeSectionId) {
-        return;
-    }
-
-    activeSectionId = sectionId;
-
-    navigationLinks.forEach((link) => {
-        const isActive = link.getAttribute('href') === `#${sectionId}`;
-        link.setAttribute('aria-current', isActive ? 'true' : 'false');
-    });
-
-    moveNavigationIndicator();
-};
-
-/**
- * The active section is the one crossing a line at 35% of the viewport height.
- * Computed from live positions on every frame so fast scrolling never skips a section.
- */
-const detectActiveSection = () => {
-    const activationLine = window.innerHeight * 0.35;
-    const currentSection = trackedSections.find((section) => {
-        const { top, bottom } = section.getBoundingClientRect();
-
-        return top <= activationLine && bottom > activationLine;
-    });
-
-    setActiveSection(currentSection?.id ?? null);
-};
-
-let isDetectionQueued = false;
-
-const queueActiveSectionDetection = () => {
-    if (isDetectionQueued) {
-        return;
-    }
-
-    isDetectionQueued = true;
-
-    requestAnimationFrame(() => {
-        isDetectionQueued = false;
-        detectActiveSection();
-    });
-};
-
-window.addEventListener('scroll', queueActiveSectionDetection, { passive: true });
-window.addEventListener('resize', () => {
-    moveNavigationIndicator();
-    queueActiveSectionDetection();
+navigationTrack?.querySelectorAll('[data-nav-link]').forEach((link) => {
+    link.addEventListener('mouseenter', () => moveNavigationIndicator(link));
+    link.addEventListener('focus', () => moveNavigationIndicator(link));
 });
-document.fonts?.ready.then(moveNavigationIndicator);
-detectActiveSection();
+navigationTrack?.addEventListener('mouseleave', () => moveNavigationIndicator());
+
+window.addEventListener('resize', () => moveNavigationIndicator());
+document.fonts?.ready.then(() => moveNavigationIndicator());
+moveNavigationIndicator();
 
 // Desktop browsers open m.me links on messenger.com, which needs a separate login;
 // send them to the page conversation on facebook.com where they are usually signed in.
@@ -314,6 +263,25 @@ if (partnerSortableList) {
         });
     });
 }
+
+// "Back" buttons return to the previous page on this site (keeping its scroll position);
+// visitors who arrived from another site or a direct link follow the button's fallback link instead.
+document.querySelectorAll('[data-back-button]').forEach((backButton) => {
+    backButton.addEventListener('click', (event) => {
+        let cameFromThisSite = false;
+
+        try {
+            cameFromThisSite = document.referrer !== '' && new URL(document.referrer).origin === window.location.origin;
+        } catch (error) {
+            cameFromThisSite = false;
+        }
+
+        if (cameFromThisSite && window.history.length > 1) {
+            event.preventDefault();
+            window.history.back();
+        }
+    });
+});
 
 document.querySelectorAll('form[data-confirm]').forEach((form) => {
     form.addEventListener('submit', (event) => {

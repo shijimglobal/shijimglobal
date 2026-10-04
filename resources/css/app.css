@@ -11,6 +11,8 @@
 @source '../**/*.blade.php';
 @source '../**/*.js';
 @source '../../node_modules/flyonui/dist/index.js';
+@source '../../lang/**/*.php';
+@source '../../config/pages.php';
 
 @plugin 'flyonui/theme' {
     name: 'shijim';

@@ -5,14 +5,26 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LegalPageController;
 use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\ServicePageController;
 use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home')->name('home');
+
+Route::get('/services/{slug}', [ServicePageController::class, 'show'])->name('services.show');
+
+Route::get('/knowledge', [ArticleController::class, 'index'])->name('articles.index');
+Route::get('/knowledge/{slug}', [ArticleController::class, 'show'])->name('articles.show');
+
+// Old Mongolian addresses already indexed by search engines move permanently to the English ones.
+Route::get('/uilchilgee/{slug}', [ServicePageController::class, 'redirectLegacy']);
+Route::permanentRedirect('/medleg', '/knowledge');
+Route::get('/medleg/{slug}', [ArticleController::class, 'redirectLegacy']);
 
 Route::get('/locale/{locale}', LocaleController::class)->name('locale.switch');
 
