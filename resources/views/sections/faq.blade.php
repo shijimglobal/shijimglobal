@@ -3,7 +3,7 @@
 @endphp
 
 {{-- FAQ --}}
-<section id="faq" class="bg-base-200 py-24 lg:py-32">
+<section id="faq" class="bg-base-100 py-24 lg:py-32">
     <div class="mx-auto grid max-w-7xl gap-12 px-4 lg:grid-cols-3 lg:px-8">
         <div data-reveal>
             <span class="text-sm font-bold tracking-widest text-primary uppercase">FAQ</span>

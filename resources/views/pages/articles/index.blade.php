@@ -8,7 +8,7 @@
         'breadcrumbs' => [[__('Knowledge'), null]],
     ])
 
-    @include('sections.knowledge', ['hideHeading' => true, 'articles' => $articles])
+    @include('sections.knowledge', ['hideHeading' => true, 'articles' => $articles, 'tinted' => false])
 
     @include('sections.contact')
 @endsection

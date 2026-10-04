@@ -8,7 +8,7 @@
 @endphp
 
 {{-- Process --}}
-<section id="process" class="py-24 lg:py-32">
+<section id="process" class="bg-base-200 py-24 lg:py-32">
     <div class="mx-auto max-w-7xl px-4 lg:px-8">
         <div class="mx-auto max-w-2xl text-center" data-reveal>
             <span class="text-sm font-bold tracking-widest text-primary uppercase">{{ __('Process') }}</span>

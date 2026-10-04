@@ -21,7 +21,7 @@
 @endphp
 
 {{-- Why us --}}
-<section id="why-us" class="relative overflow-hidden bg-base-200 py-24 lg:py-32">
+<section id="why-us" class="relative overflow-hidden bg-base-100 py-24 lg:py-32">
     <div class="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]"></div>
 
     <div class="relative mx-auto max-w-7xl px-4 lg:px-8">

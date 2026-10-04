@@ -116,12 +116,12 @@
 
     @include('sections.process')
 
+    {{-- Facebook page --}}
+    <x-facebook-page />
+
     @include('sections.knowledge')
 
     @include('sections.faq')
-
-    {{-- Facebook page --}}
-    <x-facebook-page />
 
     @include('sections.contact')
 @endsection

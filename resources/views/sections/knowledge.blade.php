@@ -1,7 +1,7 @@
 @php $knowledgeArticles = $articles ?? \App\Support\SiteContent::articles(); @endphp
 
 {{-- Knowledge --}}
-<section id="knowledge" class="relative overflow-hidden py-24 lg:py-32">
+<section id="knowledge" @class(["relative overflow-hidden py-24 lg:py-32", "bg-base-200" => $tinted ?? true])>
     <div class="mx-auto max-w-7xl px-4 lg:px-8">
         @unless ($hideHeading ?? false)
             <div class="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end" data-reveal>
