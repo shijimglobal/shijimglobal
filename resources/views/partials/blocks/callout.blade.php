@@ -13,11 +13,11 @@
             </p>
         </div>
 
-        <div class="relative mx-auto flex size-56 items-center justify-center sm:size-64" aria-hidden="true">
-            <span class="absolute size-40 translate-x-6 translate-y-6 rotate-6 rounded-[2.5rem] bg-brand-violet/25 sm:size-44"></span>
-            <span class="absolute size-40 translate-x-3 translate-y-3 rotate-3 rounded-[2.5rem] bg-brand-indigo/40 sm:size-44"></span>
-            <span class="animate-float relative flex size-40 items-center justify-center rounded-[2.5rem] bg-brand-gradient text-white shadow-2xl shadow-primary/40 sm:size-44">
-                <i class="{{ $block['icon'] }} text-7xl sm:text-8xl"></i>
+        <div class="relative mx-auto flex size-40 items-center justify-center sm:size-44" aria-hidden="true">
+            <span class="absolute size-28 translate-x-4 translate-y-4 rotate-6 rounded-[1.75rem] bg-brand-violet/25 sm:size-32"></span>
+            <span class="absolute size-28 translate-x-2 translate-y-2 rotate-3 rounded-[1.75rem] bg-brand-indigo/40 sm:size-32"></span>
+            <span class="animate-float relative flex size-28 items-center justify-center rounded-[1.75rem] bg-brand-gradient text-white shadow-xl shadow-primary/30 sm:size-32">
+                <i class="{{ $block['icon'] }} text-5xl sm:text-6xl"></i>
             </span>
         </div>
     </div>
