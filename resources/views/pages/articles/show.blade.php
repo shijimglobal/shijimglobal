@@ -9,10 +9,6 @@
         <p class="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 text-center text-[22vw] leading-none font-extrabold tracking-tighter text-base-content/[0.04] select-none sm:text-[14rem]" aria-hidden="true">{{ $article['watermark'] }}</p>
 
         <div class="relative mx-auto max-w-4xl px-4 text-center">
-            <div class="mb-5 flex justify-center">
-                @include('partials.back-button', ['fallbackUrl' => route('articles.index')])
-            </div>
-
             <nav aria-label="{{ __('Breadcrumb') }}" class="flex justify-center">
                 <ol class="flex flex-wrap items-center gap-1.5 text-sm text-base-content/55">
                     <li><a href="{{ route('home') }}" class="hover:text-primary">{{ __('Home') }}</a></li>

@@ -7,7 +7,6 @@
         'lead' => $service['tagline'],
         'icon' => $service['icon'],
         'breadcrumbs' => [[__('Services'), route('home').'#services'], [$service['title'], null]],
-        'backUrl' => route('home').'#services',
     ])
 
     {{-- Intro and who it is for --}}

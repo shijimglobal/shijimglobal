@@ -7,9 +7,6 @@
     <div class="pointer-events-none absolute -top-32 -right-32 size-[30rem] glow-brand-indigo/30"></div>
 
     <div class="relative mx-auto max-w-7xl px-4 lg:px-8">
-        <div class="flex flex-wrap items-center gap-x-4 gap-y-3">
-        @include('partials.back-button', ['fallbackUrl' => $backUrl ?? route('home')])
-
         <nav aria-label="{{ __('Breadcrumb') }}">
             <ol class="flex flex-wrap items-center gap-1.5 text-sm text-base-content/55">
                 <li><a href="{{ route('home') }}" class="hover:text-primary">{{ __('Home') }}</a></li>
@@ -25,7 +22,6 @@
                 @endforeach
             </ol>
         </nav>
-        </div>
 
         <div class="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center">
             @isset($icon)

@@ -62,17 +62,6 @@ test('each article renders all of its infographic blocks', function () {
     }
 });
 
-test('service and article pages have a back button with a sensible fallback', function () {
-    $this->get(route('services.show', 'server-setup'))
-        ->assertOk()
-        ->assertSee('href="'.route('home').'#services" data-back-button', false)
-        ->assertSee('Буцах');
-
-    $this->get(route('articles.show', 'what-is-a-website'))
-        ->assertOk()
-        ->assertSee('href="'.route('articles.index').'" data-back-button', false);
-});
-
 test('old mongolian addresses redirect permanently to the english ones', function (string $oldUrl, string $newUrl) {
     $this->get($oldUrl)->assertStatus(301)->assertRedirect($newUrl);
 })->with([

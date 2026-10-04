@@ -264,25 +264,6 @@ if (partnerSortableList) {
     });
 }
 
-// "Back" buttons return to the previous page on this site (keeping its scroll position);
-// visitors who arrived from another site or a direct link follow the button's fallback link instead.
-document.querySelectorAll('[data-back-button]').forEach((backButton) => {
-    backButton.addEventListener('click', (event) => {
-        let cameFromThisSite = false;
-
-        try {
-            cameFromThisSite = document.referrer !== '' && new URL(document.referrer).origin === window.location.origin;
-        } catch (error) {
-            cameFromThisSite = false;
-        }
-
-        if (cameFromThisSite && window.history.length > 1) {
-            event.preventDefault();
-            window.history.back();
-        }
-    });
-});
-
 document.querySelectorAll('form[data-confirm]').forEach((form) => {
     form.addEventListener('submit', (event) => {
         if (!window.confirm(form.dataset.confirm)) {
